@@ -47,6 +47,11 @@
             <span class="nav-label">契约</span>
             <span class="nav-gear">⚙</span>
           </router-link>
+          <router-link to="/dashboard" class="nav-item dashboard-link">
+            <span class="nav-icon">📊</span>
+            <span class="nav-label">看板</span>
+            <span class="nav-gear">⚙</span>
+          </router-link>
           <router-link to="/about" class="nav-item about-link">
             <span class="nav-icon">◈</span>
             <span class="nav-label">关于</span>
@@ -58,7 +63,9 @@
       </div>
     </header>
     <main class="app-main">
-      <router-view />
+      <transition name="page-fade" mode="out-in">
+        <router-view />
+      </transition>
     </main>
     <footer class="app-footer">
       <div class="footer-inner">
@@ -70,6 +77,7 @@
           <line x1="18" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.5"/>
         </svg>
         <span>方舟与罗盘 · AI共创团队</span>
+        <span class="footer-version">v0.1.0</span>
         <svg class="footer-gear" viewBox="0 0 24 24" width="14" height="14">
           <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
           <line x1="12" y1="2" x2="12" y2="6" stroke="currentColor" stroke-width="1.5"/>
@@ -361,6 +369,19 @@ import UserBadge from './components/UserBadge.vue'
   color: rgba(100, 95, 88, 0.5);
   opacity: 0.4;
   animation: spin 8s linear infinite;
+  transition: animation-duration 0.3s ease;
+}
+
+.footer-inner:hover .footer-gear {
+  animation-duration: 1s;
+}
+
+.footer-version {
+  font-size: 10px;
+  color: var(--text-muted);
+  opacity: 0.6;
+  letter-spacing: 2px;
+  font-family: 'Cinzel', serif;
 }
 
 @keyframes spin {

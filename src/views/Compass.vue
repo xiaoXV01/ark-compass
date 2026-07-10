@@ -134,11 +134,47 @@
 }
 
 @media (max-width: 768px) {
-  .mode-grid {
-    grid-template-columns: 1fr;
+  .compass-page {
+    padding: 0;
+  }
+  .page-header {
+    padding: 24px 0 20px;
+  }
+  .page-badge {
+    font-size: 10px;
+    padding: 3px 14px;
+    margin-bottom: 14px;
   }
   .page-title {
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .page-desc {
+    font-size: 12px;
+    padding: 0 12px;
+  }
+  .mode-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .mode-card {
+    padding: 24px 16px;
+  }
+  .mode-icon {
+    width: 52px;
+    height: 52px;
     font-size: 22px;
+    margin-bottom: 14px;
+  }
+  .mode-title {
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .mode-desc {
+    font-size: 12px;
   }
 }
 </style>

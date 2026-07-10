@@ -61,6 +61,13 @@
       </div>
     </div>
 
+    <!-- 空状态提示 -->
+    <div v-if="!inputText.trim() && !result" class="empty-state">
+      <div class="empty-icon">◈</div>
+      <p class="empty-text">输入文本开始评测</p>
+      <p class="empty-hint">粘贴AI模型的回答文本，系统将从五个伦理维度自动评估</p>
+    </div>
+
     <!-- 结果区 -->
     <div v-if="result" class="result-section card">
       <h3 class="result-title">评估报告</h3>
@@ -569,6 +576,38 @@ async function handleShare(cmd) {
 }
 
 /* 截图容器（隐藏，仅由 html2canvas 捕获） */
+.empty-state {
+  text-align: center;
+  padding: 60px 24px;
+  background: var(--bg-card);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+
+.empty-icon {
+  font-size: 40px;
+  color: var(--text-muted);
+  opacity: 0.3;
+  margin-bottom: 16px;
+}
+
+.empty-text {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  color: var(--text-secondary);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.empty-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
 .capture-container {
   position: fixed;
   left: -9999px;
@@ -637,6 +676,115 @@ async function handleShare(cmd) {
 }
 
 @media (max-width: 768px) {
+  .free-page {
+    padding: 0;
+  }
+  .page-header {
+    margin-bottom: 16px;
+  }
+  .page-title {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  .page-desc {
+    font-size: 12px;
+  }
+  .api-key-section {
+    padding: 10px 14px;
+    margin-bottom: 12px;
+  }
+  .api-key-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .api-key-row .styled-input {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .btn-save-key,
+  .btn-clear-key {
+    flex: 1;
+    text-align: center;
+    padding: 10px 12px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+  .input-section {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .styled-textarea :deep(.el-textarea__inner) {
+    min-height: 100px;
+    font-size: 13px;
+  }
+  .input-footer {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .input-footer .btn-compass {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+  .result-section {
+    padding: 20px 16px;
+  }
+  .result-title {
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+  }
+  .score-circle {
+    width: 100px;
+    height: 100px;
+    border-width: 3px;
+  }
+  .score-num {
+    font-size: 30px;
+  }
+  .score-label {
+    font-size: 9px;
+  }
+  .score-summary {
+    margin-bottom: 24px;
+  }
+  .dimension-results {
+    gap: 16px;
+  }
+  .dim-name {
+    font-size: 12px;
+  }
+  .dim-score {
+    font-size: 13px;
+  }
+  .dim-bar-bg {
+    height: 5px;
+  }
+  .dim-comment {
+    font-size: 11px;
+  }
+  .result-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .result-footer .btn-ark,
+  .result-footer .btn-compass {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+  .share-actions {
+    display: block;
+  }
+  .share-actions .btn-compass {
+    width: 100%;
+  }
+  .char-count {
+    font-size: 11px;
+  }
   .capture-container {
     width: 100%;
   }

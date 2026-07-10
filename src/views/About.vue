@@ -583,14 +583,136 @@ const techStack = [
 }
 
 @media (max-width: 768px) {
+  .about-page {
+    padding-bottom: 24px;
+  }
+  .page-header {
+    margin-bottom: 24px;
+  }
+  .page-badge {
+    font-size: 10px;
+    padding: 3px 14px;
+    margin-bottom: 14px;
+  }
+  .page-title {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+  .page-desc {
+    font-size: 13px;
+    padding: 0 12px;
+  }
+  .page-desc br {
+    display: none;
+  }
+  .about-section {
+    margin-bottom: 20px;
+  }
+  .section-header {
+    padding: 14px 16px 10px;
+    gap: 8px;
+  }
+  .section-title {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  .gear-deco {
+    font-size: 12px;
+  }
+  .section-body {
+    padding: 16px;
+  }
   .origin-content {
     flex-direction: column;
+    gap: 16px;
+  }
+  .origin-text p {
+    font-size: 13px;
+    line-height: 1.8;
+    text-indent: 1.5em;
+    margin-bottom: 10px;
   }
   .origin-symbol {
     align-self: center;
   }
-  .page-title {
-    font-size: 22px;
+  .origin-ark-compass {
+    width: 80px;
+    height: 80px;
+  }
+  .origin-symbol-label {
+    font-size: 9px;
+  }
+  .pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .pillar-card {
+    padding: 18px 14px;
+  }
+  .pillar-number {
+    font-size: 24px;
+  }
+  .pillar-badge {
+    font-size: 9px;
+    padding: 2px 8px;
+    margin-bottom: 8px;
+  }
+  .pillar-title {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .pillar-desc {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  .subsection-title {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  .tech-grid {
+    gap: 8px;
+  }
+  .tech-item {
+    padding: 6px 12px;
+    gap: 6px;
+  }
+  .tech-icon {
+    font-size: 14px;
+  }
+  .tech-name {
+    font-size: 11px;
+  }
+  .tech-role {
+    font-size: 10px;
+    padding: 1px 6px;
+  }
+  .section-divider {
+    margin: 14px 0;
+  }
+  .team-blurb {
+    font-size: 13px;
+    line-height: 1.8;
+    text-indent: 1.5em;
+    margin-bottom: 10px;
+  }
+  .team-signature {
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 0 4px;
+  }
+  .signature-text {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+  .signature-year {
+    font-size: 10px;
+  }
+  .about-footer-deco {
+    gap: 16px;
+  }
+  .footer-gear-icon {
+    font-size: 16px;
   }
 }
 </style>

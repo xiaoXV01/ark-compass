@@ -82,7 +82,7 @@
     <!-- 截图专用容器（隐藏，由 html2canvas 捕获） -->
     <div ref="captureRef" class="capture-container">
       <div class="capture-header">
-        <span>🧭 方舟 SQ · 共生指数测评报告</span>
+        <span>🧭 方舟 SQ · 共生态势能测评报告</span>
       </div>
       <div class="title-section capture-card">
         <div class="title-badge" :class="result.totalScore >= 80 ? 'gold' : result.totalScore >= 60 ? 'silver' : ''">
@@ -124,7 +124,7 @@
         </div>
       </div>
       <div class="capture-footer">
-        <span>方舟与罗盘 · 共生评估系统 · http://150.158.36.130/ark/</span>
+        <span>方舟与罗盘 · SQ共生态势能评估系统 · http://150.158.36.130/ark/</span>
       </div>
     </div>
   </div>
@@ -145,11 +145,11 @@ const result = ref(null)
 const captureRef = ref(null)
 
 const dimensionConfig = {
-  openness: { label: '人机协作开放性', color: '#7EC8E3' },
-  critical: { label: '批判性思维', color: '#00B4D8' },
-  meaning: { label: '数字意义感', color: '#FFB347' },
-  resilience: { label: '情绪韧性', color: '#FF8C42' },
-  empathy: { label: '社会共情力', color: '#E06A2A' }
+  empathy:        { label: '同理心',       color: '#E06A2A' },
+  boundary:       { label: '边界感',       color: '#7EC8E3' },
+  reflection:     { label: '自省力',       color: '#00B4D8' },
+  responsibility: { label: '责任感',       color: '#FFB347' },
+  openness:       { label: '开放性',       color: '#FF8C42' }
 }
 
 onMounted(() => {

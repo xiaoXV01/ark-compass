@@ -1,5 +1,14 @@
 <template>
   <div class="home">
+    <!-- 骨架屏 -->
+    <div v-if="showSkeleton" class="skeleton-overlay">
+      <div class="skeleton-block skeleton-hero"></div>
+      <div class="skeleton-row">
+        <div class="skeleton-block skeleton-card"></div>
+        <div class="skeleton-block skeleton-card"></div>
+      </div>
+      <div class="skeleton-block skeleton-manifesto"></div>
+    </div>
     <!-- Hero区域 -->
     <section class="hero">
       <div class="hero-badge">
@@ -180,11 +189,73 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue'
+
+const showSkeleton = ref(true)
+
+onMounted(() => {
+  setTimeout(() => {
+    showSkeleton.value = false
+  }, 500)
+})
 </script>
 
 <style scoped>
 .home {
   animation: fadeIn 0.6s ease;
+}
+
+/* ====== 骨架屏 ====== */
+.skeleton-overlay {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 0;
+}
+
+.skeleton-block {
+  background: rgba(100, 95, 88, 0.08);
+  border-radius: var(--radius);
+  animation: skeleton-pulse 1.5s ease-in-out infinite;
+}
+
+.skeleton-hero {
+  height: 260px;
+  width: 100%;
+}
+
+.skeleton-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.skeleton-card {
+  height: 180px;
+  width: 100%;
+}
+
+.skeleton-manifesto {
+  height: 200px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .skeleton-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .skeleton-hero {
+    height: 200px;
+  }
+  .skeleton-card {
+    height: 150px;
+  }
+  .skeleton-manifesto {
+    height: 160px;
+  }
 }
 
 @keyframes fadeIn {
@@ -514,27 +585,103 @@
 
 /* ====== 响应式 ====== */
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 34px;
-    letter-spacing: 4px;
+  .hero {
+    padding: 24px 0 24px;
   }
-  .title-ampersand {
-    font-size: 28px;
-    margin: 0 6px;
+  .hero-badge {
+    font-size: 10px;
+    padding: 4px 14px;
+    margin-bottom: 18px;
   }
   .hero-compass-svg {
-    width: 220px;
-    height: 220px;
+    width: 180px;
+    height: 180px;
+  }
+  .hero-title {
+    font-size: 28px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+  .title-ampersand {
+    font-size: 22px;
+    margin: 0 4px;
+  }
+  .hero-subtitle {
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-bottom: 12px;
+  }
+  .hero-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 0 16px;
+  }
+  .hero-divider {
+    margin: 20px auto;
+    max-width: 200px;
+  }
+  .hero-actions {
+    gap: 12px;
+  }
+  .hero-actions a {
+    font-size: 13px;
+    padding: 10px 20px;
   }
   .dual-section {
     grid-template-columns: 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .dual-card {
+    padding: 20px;
+    gap: 14px;
+  }
+  .dual-icon-wrap {
+    width: 44px;
+    height: 44px;
+  }
+  .dual-icon-wrap svg {
+    width: 22px;
+    height: 22px;
+  }
+  .dual-title {
+    font-size: 14px;
+  }
+  .dual-desc {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .dual-arrow {
+    display: none;
+  }
+  .manifesto {
+    margin: 32px 0 24px;
   }
   .manifesto-grid {
     grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 20px;
   }
-  .hero-subtitle {
-    font-size: 11px;
-    letter-spacing: 4px;
+  .manifesto-item {
+    padding: 16px;
+    gap: 12px;
+  }
+  .manifesto-num {
+    font-size: 22px;
+  }
+  .manifesto-item p {
+    font-size: 13px;
+  }
+  .home-footer-deco {
+    margin: 24px 0 0;
+  }
+  .home-footer-deco svg {
+    width: 140px;
+    height: 16px;
+  }
+  .section-title {
+    font-size: 16px;
+    letter-spacing: 3px;
   }
 }
 </style>

@@ -658,14 +658,135 @@ const roadmap = [
 
 /* ====== 响应式 ====== */
 @media (max-width: 768px) {
-  .framework-grid {
-    grid-template-columns: 1fr;
+  .covenant-page {
+    padding-bottom: 24px;
+  }
+  .page-header {
+    margin-bottom: 24px;
+  }
+  .page-badge {
+    font-size: 10px;
+    padding: 3px 14px;
+    margin-bottom: 14px;
+  }
+  .page-title {
+    font-size: 20px;
+    letter-spacing: 3px;
+  }
+  .page-desc {
+    font-size: 13px;
+    padding: 0 12px;
+  }
+  .page-desc br {
+    display: none;
+  }
+  .covenant-section {
+    margin-bottom: 20px;
+  }
+  .section-header {
+    padding: 14px 16px 10px;
+    gap: 8px;
+  }
+  .section-title {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  .gear-deco {
+    font-size: 12px;
+  }
+  .section-body {
+    padding: 16px;
+  }
+  .prologue-text {
+    font-size: 13px;
+    line-height: 1.8;
+    text-indent: 1.5em;
+  }
+  .principle-title-row {
+    gap: 10px;
+  }
+  .principle-number {
+    font-size: 18px;
+    min-width: 28px;
+  }
+  .principle-tag {
+    font-size: 9px;
+  }
+  .principle-name {
+    font-size: 13px;
+  }
+  .principle-dual-dot {
+    display: none;
   }
   .principle-content {
     padding-left: 0;
   }
-  .page-title {
-    font-size: 22px;
+  .principle-desc {
+    font-size: 12px;
+  }
+  .principle-implications {
+    padding: 10px 12px;
+  }
+  .principle-implications li {
+    font-size: 11px;
+  }
+  .framework-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .framework-item {
+    padding: 14px;
+  }
+  .framework-icon {
+    font-size: 18px;
+  }
+  .framework-title {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+  .framework-desc {
+    font-size: 11px;
+  }
+  .roadmap-step {
+    gap: 14px;
+  }
+  .step-marker {
+    min-width: 36px;
+  }
+  .step-number {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+  .step-card {
+    padding: 12px 14px;
+    margin-bottom: 14px;
+  }
+  .step-title {
+    font-size: 12px;
+  }
+  .step-desc {
+    font-size: 11px;
+  }
+  .epilogue-text {
+    font-size: 13px;
+    line-height: 1.8;
+    text-indent: 1.5em;
+    margin-bottom: 16px;
+  }
+  .epilogue-signature {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .signature-text {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+  .covenant-footer-deco {
+    gap: 16px;
+  }
+  .footer-gear-icon {
+    font-size: 16px;
   }
 }
 </style>

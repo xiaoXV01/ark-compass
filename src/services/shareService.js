@@ -79,7 +79,7 @@ function buildSQText(data) {
   const dimLabels = {
     empathy: '同理心',
     boundary: '边界感',
-    introspection: '自省力',
+    reflection: '自省力',
     responsibility: '责任感',
     openness: '开放性',
   }

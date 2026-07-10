@@ -70,6 +70,13 @@
       </div>
     </div>
 
+    <!-- 空状态提示 -->
+    <div v-if="!running && !done && !modelName.trim()" class="empty-state">
+      <div class="empty-icon">⇶</div>
+      <p class="empty-text">选择模型并设置参数开始测试</p>
+      <p class="empty-hint">填写AI模型名称并选择题库规模，系统将自动运行批量伦理基准测试</p>
+    </div>
+
     <!-- 结果报告 -->
     <div v-if="done" class="report-section">
       <div class="report-header card">
@@ -604,5 +611,172 @@ function reset() {
   border-radius: 4px;
 }
 
+.empty-state {
+  text-align: center;
+  padding: 60px 24px;
+  background: var(--bg-card);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+}
+
+.empty-icon {
+  font-size: 40px;
+  color: var(--text-muted);
+  opacity: 0.3;
+  margin-bottom: 16px;
+}
+
+.empty-text {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  color: var(--text-secondary);
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.empty-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
 .report-actions { text-align: center; }
+
+@media (max-width: 768px) {
+  .benchmark-page {
+    padding: 0;
+  }
+  .page-header {
+    margin-bottom: 16px;
+  }
+  .page-title {
+    font-size: 20px;
+    letter-spacing: 2px;
+  }
+  .page-desc {
+    font-size: 12px;
+  }
+  .api-key-section {
+    padding: 10px 14px;
+    margin-bottom: 12px;
+  }
+  .api-key-row {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .api-key-row .styled-input {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+  .btn-save-key,
+  .btn-clear-key {
+    flex: 1;
+    text-align: center;
+    padding: 10px 12px;
+    font-size: 12px;
+    min-height: 44px;
+  }
+  .config-section {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .section-subtitle {
+    font-size: 13px;
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+  .form-group {
+    margin-bottom: 14px;
+  }
+  .form-label {
+    font-size: 12px;
+  }
+  .radio-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .radio-item {
+    padding: 12px 16px;
+    width: 100%;
+    min-height: 44px;
+  }
+  .config-actions .btn-compass {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+  .running-section {
+    padding: 32px 16px;
+  }
+  .gear-large {
+    width: 48px;
+    height: 48px;
+  }
+  .gear-large::before {
+    height: 56px;
+    top: -6px;
+    left: 20px;
+  }
+  .gear-large::after {
+    width: 56px;
+    top: 20px;
+    left: -6px;
+  }
+  .running-text {
+    font-size: 14px;
+  }
+  .progress-bar {
+    max-width: 100%;
+  }
+  .report-header {
+    padding: 16px;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .report-overall .overall-num {
+    font-size: 28px;
+  }
+  .report-dims {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .dim-name {
+    font-size: 12px;
+  }
+  .dim-score {
+    font-size: 13px;
+  }
+  .dim-bar-bg {
+    height: 5px;
+  }
+  .dim-detail {
+    font-size: 11px;
+  }
+  .report-details {
+    padding: 16px;
+    margin-bottom: 16px;
+    overflow-x: auto;
+  }
+  .detail-item {
+    padding: 10px 0;
+  }
+  .detail-id {
+    font-size: 10px;
+  }
+  .detail-question {
+    font-size: 12px;
+  }
+  .detail-answer {
+    font-size: 11px;
+  }
+  .report-actions .btn-ark {
+    width: 100%;
+    min-height: 44px;
+    justify-content: center;
+  }
+}
 </style>

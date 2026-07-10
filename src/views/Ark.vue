@@ -99,4 +99,46 @@ const dimensions = [
   color: var(--text-muted);
   margin-top: 12px;
 }
+
+@media (max-width: 768px) {
+  .ark-page {
+    padding-top: 24px;
+  }
+  .page-badge {
+    font-size: 10px;
+    padding: 3px 14px;
+    margin-bottom: 14px;
+  }
+  .page-title {
+    font-size: 22px;
+    letter-spacing: 3px;
+    margin-bottom: 12px;
+  }
+  .page-desc {
+    font-size: 13px;
+    line-height: 1.6;
+    padding: 0 12px;
+    margin-bottom: 20px;
+  }
+  .page-desc br {
+    display: none;
+  }
+  .dimension-summary {
+    gap: 6px;
+    margin-bottom: 28px;
+    padding: 0 12px;
+  }
+  .dim-item {
+    font-size: 10px;
+    padding: 4px 10px;
+  }
+  .start-btn {
+    font-size: 14px;
+    padding: 14px 36px;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
 </style>

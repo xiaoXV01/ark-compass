@@ -368,7 +368,98 @@ body::after {
   50% { opacity: 1; }
 }
 
-/* 响应式 */
+/* ====== 页面过渡动画 ====== */
+.page-fade-enter-active,
+.page-fade-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.page-fade-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.page-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+
+/* ====== 骨架屏 pulse 动画 ====== */
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* ====== Toast 通知 — 蒸汽朋克风格 ====== */
+.steampunk-toast {
+  --el-message-bg-color: rgba(42, 45, 48, 0.95);
+  --el-message-border-color: rgba(100, 95, 88, 0.3);
+  --el-message-text-color: var(--text-primary);
+  --el-message-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(12px);
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+  padding: 12px 20px;
+  min-width: 260px;
+}
+
+.steampunk-toast.el-message--success {
+  border-color: rgba(0, 180, 216, 0.4);
+  --el-message-bg-color: rgba(0, 180, 216, 0.12);
+}
+
+.steampunk-toast.el-message--warning {
+  border-color: rgba(184, 134, 11, 0.4);
+  --el-message-bg-color: rgba(184, 134, 11, 0.12);
+}
+
+.steampunk-toast.el-message--error {
+  border-color: rgba(224, 106, 42, 0.4);
+  --el-message-bg-color: rgba(224, 106, 42, 0.12);
+}
+
+.steampunk-toast .el-message__icon {
+  font-size: 16px;
+}
+
+.steampunk-toast .el-message__content {
+  color: var(--text-primary);
+}
+
+/* ====== 导航 active 底部发光条 ====== */
+.router-link-active.nav-item {
+  position: relative;
+}
+
+.router-link-active.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  border-radius: 1px;
+  opacity: 0.8;
+}
+
+.router-link-active.compass-link::after {
+  background: linear-gradient(90deg, transparent, var(--compass), transparent);
+  box-shadow: 0 0 6px var(--compass-glow);
+}
+
+.router-link-active.ark-link::after {
+  background: linear-gradient(90deg, transparent, var(--ark), transparent);
+  box-shadow: 0 0 6px var(--ark-glow);
+}
+
+.router-link-active.covenant-link::after,
+.router-link-active.about-link::after {
+  background: linear-gradient(90deg, transparent, var(--brass), transparent);
+  box-shadow: 0 0 6px rgba(184, 134, 11, 0.3);
+}
+
+/* ====== 响应式 ====== */
 @media (max-width: 768px) {
   :root {
     --header-height: 60px;
