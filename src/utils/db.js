@@ -1,11 +1,12 @@
 /**
  * Ark & Compass — IndexedDB 持久化存储层
  *
- * 使用 Dexie.js 管理本地数据库，支持四类数据模型：
+ * 使用 Dexie.js 管理本地数据库，支持五类数据模型：
  *   1. 用户身份 (UserIdentity)
  *   2. Ethos 自由评测记录 (FreeEthosRecord)
  *   3. Ethos 基准测试记录 (BenchmarkRecord)
  *   4. SQ 测评结果 (SQAssessmentRecord)
+ *   5. AI 伦理新闻缓存 (EthicsNews)
  *
  * 当 IndexedDB 不可用时自动降级为 localStorage 方案。
  */
@@ -15,7 +16,7 @@ import Dexie from 'dexie'
 // ─── 数据库定义 ───────────────────────────────────────────────
 
 const DB_NAME = 'ArkCompass'
-const DB_VERSION = 1
+const DB_VERSION = 2
 
 class ArkCompassDB extends Dexie {
   constructor() {
@@ -33,6 +34,14 @@ class ArkCompassDB extends Dexie {
 
       // SQ 测评结果
       sqAssessments: '++id, timestamp, totalScore',
+
+      // AI 伦理新闻缓存
+      ethicsNews: '++id, date, source, tag',
+    })
+
+    // DB升版：新增伦理新闻表
+    this.version(2).stores({
+      ethicsNews: '++id, date, source, tag',
     })
   }
 }
@@ -510,6 +519,76 @@ export async function deleteSQAssessment(id) {
 
   lsRemove(`sqAssessment_${id}`)
   return true
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  5. AI 伦理新闻缓存
+// ═══════════════════════════════════════════════════════════════
+
+/**
+ * @typedef {Object} EthicsNewsItem
+ * @property {number}  [id]       — 自增主键
+ * @property {string}  date       — 日期 YYYY-MM-DD
+ * @property {string}  title      — 新闻标题
+ * @property {string}  summary    — 摘要（60-100字）
+ * @property {string}  source     — 来源名称
+ * @property {string}  [url]      — 原文链接
+ * @property {string}  [tag]      — 标签
+ * @property {number}  createdAt  — 创建时间戳
+ */
+
+export async function createEthicsNews(data) {
+  const record = {
+    date: data.date || '',
+    title: data.title || '',
+    summary: data.summary || '',
+    source: data.source || '',
+    url: data.url || '',
+    tag: data.tag || 'general',
+    createdAt: Date.now(),
+  }
+  const { useIDB } = storageBackend()
+  if (useIDB) {
+    const d = getDB()
+    const id = await d.ethicsNews.add(record)
+    return { ...record, id }
+  }
+  const id = nextLsid()
+  lsSet(`news_${data.date || id}`, { ...record, id })
+  return { ...record, id }
+}
+
+export async function getLatestEthicsNews(limit = 7) {
+  const { useIDB } = storageBackend()
+  if (useIDB) {
+    const d = getDB()
+    return d.ethicsNews.orderBy('date').reverse().limit(limit).toArray()
+  }
+  const all = lsGetAll('news_')
+  return all.sort((a, b) => b.createdAt - a.createdAt).slice(0, limit)
+}
+
+export async function getEthicsNewsByDate(dateStr) {
+  const { useIDB } = storageBackend()
+  if (useIDB) {
+    const d = getDB()
+    return d.ethicsNews.where('date').equals(dateStr).first()
+  }
+  const all = lsGetAll('news_')
+  return all.find(r => r.date === dateStr) || null
+}
+
+export async function getEthicsNewsStats() {
+  const { useIDB } = storageBackend()
+  if (useIDB) {
+    const d = getDB()
+    const total = await d.ethicsNews.count()
+    const latest = await getLatestEthicsNews(1)
+    return { total, latestDate: latest.length > 0 ? latest[0].date : null }
+  }
+  const all = lsGetAll('news_')
+  const sorted = all.sort((a, b) => b.createdAt - a.createdAt)
+  return { total: all.length, latestDate: sorted.length > 0 ? sorted[0].date : null }
 }
 
 // ═══════════════════════════════════════════════════════════════

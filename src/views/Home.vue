@@ -153,6 +153,9 @@
     </section>
 
     <!-- 理念 -->
+    <!-- AI 伦理日报 -->
+    <EthicsNewsBar @close="showNewsBar = false" v-if="showNewsBar" />
+
     <section class="manifesto">
       <h2 class="section-title center">共 生 宣 言</h2>
       <div class="manifesto-grid">
@@ -190,10 +193,18 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+import EthicsNewsBar from '../components/EthicsNewsBar.vue'
+import { seedDefaultNews } from '../services/ethicsNewsService.js'
 
 const showSkeleton = ref(true)
+const showNewsBar = ref(true)
 
-onMounted(() => {
+onMounted(async () => {
+  // 仅在首次访问时播种默认新闻
+  try {
+    await seedDefaultNews()
+  } catch { /* ignore */ }
+
   setTimeout(() => {
     showSkeleton.value = false
   }, 500)
