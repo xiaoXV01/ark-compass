@@ -1,0 +1,376 @@
+/* =============================================
+   方舟与罗盘 · 共生评估系统
+   蒸汽朋克 — 水泥工业风 · 金属灰调
+   罗盘（青）· 方舟（橙）· 水泥与钢铁
+   ============================================= */
+
+/* 字体导入 */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&display=swap');
+
+/* CSS变量体系 */
+:root {
+  /* 罗盘 — 青色系 */
+  --compass-light: #7EC8E3;
+  --compass: #00B4D8;
+  --compass-dark: #0077B6;
+  --compass-glow: rgba(0, 180, 216, 0.3);
+
+  /* 方舟 — 橙色系 */
+  --ark-light: #FFB347;
+  --ark: #FF8C42;
+  --ark-dark: #E06A2A;
+  --ark-glow: rgba(255, 140, 66, 0.3);
+
+  /* 基础色 — 水泥灰 + 金属 */
+  --bg-base: #2A2D30;
+  --bg-warm: #323538;
+  --bg-soft: #3A3D40;
+  --bg-card: rgba(50, 53, 56, 0.85);
+  --bg-card-hover: rgba(60, 63, 66, 0.92);
+  --text-primary: #D4D0C8;
+  --text-secondary: #A8A39A;
+  --text-tertiary: #8A857C;
+  --text-muted: #6E6A62;
+  --border-color: rgba(100, 95, 88, 0.2);
+  --border-glow: rgba(0, 180, 216, 0.25);
+
+  /* 蒸汽朋克装饰色 — 金属光泽 */
+  --brass: #B8860B;
+  --brass-light: #D4A843;
+  --copper: #B87333;
+  --rivet: #7A7A7A;
+  --metal-dark: #4A4D50;
+  --metal-light: #6A6D70;
+  --concrete: #8A8D90;
+
+  /* 尺寸 */
+  --radius: 12px;
+  --radius-sm: 6px;
+  --header-height: 72px;
+}
+
+/* 全局重置与基础 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cinzel', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ====== 水泥金属质感背景 ====== */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    /* 水泥纹理 - 细微杂色颗粒感 */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 3px,
+      rgba(160, 155, 145, 0.015) 3px,
+      rgba(160, 155, 145, 0.008) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 5px,
+      rgba(160, 155, 145, 0.01) 5px,
+      rgba(160, 155, 145, 0.005) 6px
+    ),
+    /* 横向金属拉丝纹理 */
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(180, 175, 165, 0.03) 40px,
+      rgba(180, 175, 165, 0.01) 41px
+    ),
+    /* 纵向微弱拉丝 */
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 60px,
+      rgba(180, 175, 165, 0.02) 60px,
+      rgba(180, 175, 165, 0.005) 61px
+    ),
+    /* 斜向水泥模板缝 */
+    repeating-linear-gradient(
+      135deg,
+      transparent,
+      transparent 120px,
+      rgba(100, 95, 88, 0.04) 120px,
+      rgba(100, 95, 88, 0.015) 122px
+    ),
+    /* 边缘暗角 — 工业感 */
+    radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.12) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, rgba(0,0,0,0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 0% 50%, rgba(0,0,0,0.15) 0%, transparent 40%),
+    radial-gradient(ellipse at 100% 50%, rgba(0,0,0,0.12) 0%, transparent 40%),
+    /* 金属光泽渐变 — 顶部微亮 */
+    linear-gradient(
+      180deg,
+      rgba(120, 125, 130, 0.08) 0%,
+      rgba(80, 83, 86, 0.04) 15%,
+      rgba(42, 45, 48, 0) 40%,
+      rgba(42, 45, 48, 0) 60%,
+      rgba(20, 22, 24, 0.06) 85%,
+      rgba(15, 16, 18, 0.12) 100%
+    );
+}
+
+/* 光晕层 — 青橙氛围 + 金属反光 */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+
+  background:
+    /* 左上罗盘青光 — 如窗外冷光 */
+    radial-gradient(ellipse 600px 500px at 10% 15%, rgba(0, 180, 216, 0.05) 0%, transparent 60%),
+    /* 右下熔炉橙光 */
+    radial-gradient(ellipse 500px 500px at 85% 85%, rgba(255, 140, 66, 0.04) 0%, transparent 60%),
+    /* 中部微弱的金属反光 */
+    radial-gradient(ellipse 300px 300px at 50% 30%, rgba(160, 165, 170, 0.03) 0%, transparent 60%),
+    /* 底部暖光 — 像熔炉的余辉 */
+    radial-gradient(ellipse 400px 200px at 50% 100%, rgba(140, 120, 100, 0.06) 0%, transparent 60%);
+}
+
+/* 主容器 */
+#app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 滚动条 — 工业风 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #2A2D30;
+  border-left: 1px solid rgba(100, 95, 88, 0.12);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #5A5D60, #4A4D50);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--metal-light);
+}
+
+/* ====== 通用组件样式 ====== */
+
+/* 卡片 — 水泥金属面板 */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* 卡片顶部反光条 */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(160, 165, 170, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 180, 216, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* 主按钮 — 方舟橙 */
+.btn-ark {
+  background: linear-gradient(135deg, var(--ark-dark), var(--ark));
+  border: 1px solid rgba(255, 179, 71, 0.3);
+  color: #FFF;
+  padding: 12px 32px;
+  border-radius: var(--radius-sm);
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ark::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-ark:hover::before {
+  left: 100%;
+}
+
+.btn-ark:hover {
+  box-shadow: 0 0 20px var(--ark-glow);
+  transform: translateY(-1px);
+}
+
+/* 主按钮 — 罗盘青 */
+.btn-compass {
+  background: linear-gradient(135deg, var(--compass-dark), var(--compass));
+  border: 1px solid rgba(126, 200, 227, 0.3);
+  color: #FFF;
+  padding: 12px 32px;
+  border-radius: var(--radius-sm);
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-compass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-compass:hover::before {
+  left: 100%;
+}
+
+.btn-compass:hover {
+  box-shadow: 0 0 20px var(--compass-glow);
+  transform: translateY(-1px);
+}
+
+/* 标题装饰 */
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 14px;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--compass), var(--ark));
+  border-radius: 1px;
+}
+
+.section-title.center {
+  text-align: center;
+}
+
+.section-title.center::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 蒸汽朋克装饰齿轮 */
+.gear {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(180, 175, 165, 0.4);
+  border-radius: 50%;
+  position: relative;
+  margin: 0 8px;
+  vertical-align: middle;
+  animation: spin 6s linear infinite;
+}
+
+.gear::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 5px;
+  width: 2px;
+  height: 20px;
+  background: rgba(180, 175, 165, 0.4);
+  border-radius: 1px;
+}
+
+.gear::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: -4px;
+  width: 20px;
+  height: 2px;
+  background: rgba(180, 175, 165, 0.4);
+  border-radius: 1px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* 响应式 */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 60px;
+  }
+}
