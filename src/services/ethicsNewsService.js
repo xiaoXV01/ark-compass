@@ -28,6 +28,30 @@ export const NEWS_TAGS = {
 
 const _fallbackNews = [
   {
+    date: '2026-07-11',
+    title: '伊利诺伊州签署AI安全法，要求独立审计和举报人保护',
+    summary: '州长JB Pritzker签署SB 315号AI安全法案，要求AI企业接受独立第三方审计并建立举报人保护机制，条款比纽约和加州同类法案更严格。',
+    source: 'The Verge',
+    tag: 'policy',
+    url: '',
+  },
+  {
+    date: '2026-07-11',
+    title: '迪士尼与环球影业起诉Midjourney大规模侵犯版权',
+    summary: '两大好莱坞巨头联合起诉Midjourney，指控其AI图像生成器未经授权生成星战、漫威等知名角色形象，要求停止侵权并索赔。',
+    source: 'The Verge',
+    tag: 'incident',
+    url: '',
+  },
+  {
+    date: '2026-07-11',
+    title: 'AI搜索引擎SEO乱象：企业自推自荐成行业潜规则',
+    summary: '调查发现大量公司在AI搜索结果中利用自推自荐文章操纵排名，生成式AI的搜索结果正在被SEO行业系统性渗透，引发信息真实性担忧。',
+    source: 'The Verge',
+    tag: 'industry',
+    url: '',
+  },
+  {
     date: '2026-07-10',
     title: '欧盟AI伦理委员会发布最新版可信AI评估框架',
     summary: '欧盟AI伦理委员会公布了2026年修订版可信AI评估框架，新增对生成式AI系统在透明度、偏见检测方面的强制性要求，2027年起生效。',
@@ -85,23 +109,19 @@ const _fallbackNews = [
   },
 ]
 
-const _seededDates = new Set()
-
 /**
- * 初始化内置新闻（首次使用时注入）
+ * 初始化内置新闻，逐条检查并补充缺失条目
  */
 export async function seedDefaultNews() {
-  const stats = await getEthicsNewsStats()
-  if (stats.total > 0 && stats.latestDate) return // 已有数据，跳过
-
+  let added = 0
   for (const item of _fallbackNews) {
     const exists = await getEthicsNewsByDate(item.date)
     if (!exists) {
       await createEthicsNews(item)
+      added++
     }
   }
-  _seededDates.clear()
-  return true
+  return added
 }
 
 // ─── 对外接口 ─────────────────────────────────────────────────
