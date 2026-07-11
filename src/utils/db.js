@@ -39,10 +39,7 @@ class ArkCompassDB extends Dexie {
       ethicsNews: '++id, date, source, tag',
     })
 
-    // DB升版：新增伦理新闻表
-    this.version(2).stores({
-      ethicsNews: '++id, date, source, tag',
-    })
+    // 注意：伦理新闻表已在 DB_VERSION (v2) 的 stores 中定义，无需重复声明
   }
 }
 
