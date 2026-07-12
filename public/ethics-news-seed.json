@@ -1,0 +1,58 @@
+[
+  {
+    "date": "2026-07-12",
+    "title": "伊利诺伊州签署全美最严AI安全法，要求独立审计与举报人保护",
+    "summary": "州长JB Pritzker签署SB 315号法案，要求AI企业接受独立第三方审计并建立内部举报人保护机制，覆盖范围包括偏见检测、透明度报告和安全测试。",
+    "source": "The Verge",
+    "tag": "policy",
+    "url": ""
+  },
+  {
+    "date": "2026-07-12",
+    "title": "迪士尼与环球影业联合起诉Midjourney大规模版权侵权",
+    "summary": "两大好莱坞巨头起诉Midjourney，指控其AI图像生成器未经授权生成星战、漫威、迪士尼等知名IP角色形象，要求停止侵权并索赔。",
+    "source": "The Verge",
+    "tag": "incident",
+    "url": ""
+  },
+  {
+    "date": "2026-07-11",
+    "title": "AI搜索引擎SEO乱象调查：企业自推自荐成行业潜规则",
+    "summary": "调查发现大量公司在AI搜索结果中利用自推自荐型文章操纵排名，生成式AI搜索结果正被SEO行业系统性渗透，引发信息真实性担忧。",
+    "source": "The Verge",
+    "tag": "industry",
+    "url": ""
+  },
+  {
+    "date": "2026-07-10",
+    "title": "欧盟AI伦理委员会发布2026版可信AI评估框架",
+    "summary": "修订版框架新增对生成式AI系统的透明度与偏见检测强制性要求，涵盖大语言模型、图像生成和合成媒体三大类别，2027年起生效。",
+    "source": "European Commission",
+    "tag": "policy",
+    "url": ""
+  },
+  {
+    "date": "2026-07-09",
+    "title": "MIT研究发现主流AI模型在皮肤诊断中存在34%种族偏见差异",
+    "summary": "MIT团队测试6个主流AI模型，发现对深色皮肤的误诊率比浅色皮肤高出34%，呼吁建立医疗AI伦理审核制度并纳入训练数据多样性标准。",
+    "source": "MIT Tech Review",
+    "tag": "research",
+    "url": ""
+  },
+  {
+    "date": "2026-07-08",
+    "title": "Anthropic发表Constitutional AI 2.0，价值观对齐成功率提升至97%",
+    "summary": "新框架通过自我修正机制显著减少AI系统价值观偏移，在红队测试中拒答有害问题的成功率从82%提升至97%，论文已开源。",
+    "source": "Anthropic",
+    "tag": "research",
+    "url": ""
+  },
+  {
+    "date": "2026-07-07",
+    "title": "斯坦福HAI发布2026报告：中国AI伦理治理投入同比增长62%",
+    "summary": "年度AI指数报告显示中国在隐私保护框架和数据治理立法方面进入全球前15，但在AI安全研究和开源透明度方面仍有提升空间。",
+    "source": "Stanford HAI",
+    "tag": "industry",
+    "url": ""
+  }
+]
