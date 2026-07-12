@@ -490,5 +490,5 @@ function extractJsonFromText(text) {
  * 当 API 失败时，生成一个包含合理推理的回答
  */
 function generateFallbackAnswer(q) {
-  return q.unbiasedAnswer
+  return q.unbiased_answer
 }
