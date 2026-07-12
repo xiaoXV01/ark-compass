@@ -28,6 +28,46 @@ export const NEWS_TAGS = {
 
 const _fallbackNews = [
   {
+    date: '2026-07-12',
+    title: 'Trump administration clears OpenAI GPT-5.6 for public launch amid safety review',
+    summary: '特朗普政府批准OpenAI GPT-5.6三款模型（Sol/Terra/Luna）公开发布，每百万token价格仅为Anthropic Claude Fable 5的一半。OpenAI投入约70万GPU小时进行自动化红队测试，模型在网络安全、编码和生物学领域表现突出。',
+    source: 'The Verge / Axios',
+    tag: 'policy',
+    url: '',
+  },
+  {
+    date: '2026-07-12',
+    title: 'TikTok升级AI垃圾内容检测系统，聚焦政治与公共健康误导',
+    summary: 'TikTok正在测试改进后的垃圾内容检测系统，专门识别AI生成的政治、时事、金融建议和医疗信息相关虚假内容，称这类内容可能"对公众信任或福祉构成风险"。',
+    source: 'The Verge',
+    tag: 'policy',
+    url: '',
+  },
+  {
+    date: '2026-07-12',
+    title: 'NYT等出版商起诉OpenAI隐瞒训练证据，要求法院制裁',
+    summary: '纽约时报等出版商向法庭提交文件，指控OpenAI在版权诉讼中隐瞒AI系统训练方式和数据使用的关键信息，要求法院对OpenAI实施法律制裁。',
+    source: 'The Verge',
+    tag: 'incident',
+    url: '',
+  },
+  {
+    date: '2026-07-12',
+    title: 'Meta计划9月开始制造自研AI芯片"Iris"，减少对NVIDIA依赖',
+    summary: 'Meta据报计划9月起开始制造代号"Iris"的自研AI芯片，加入MTIA产品线。Meta此前宣布每六个月推出一款自研芯片，以减少对NVIDIA和AMD的依赖。',
+    source: 'The Verge / Reuters',
+    tag: 'industry',
+    url: '',
+  },
+  {
+    date: '2026-07-12',
+    title: 'OpenAI关闭ChatGPT Atlas浏览器，整合至ChatGPT Work超级应用',
+    summary: 'OpenAI宣布关停其独立AI浏览器Atlas，将功能整合至ChatGPT Work桌面超级应用中。此前OpenAI已关闭视频生成应用Sora并搁置"成人模式"计划。',
+    source: 'The Verge',
+    tag: 'industry',
+    url: '',
+  },
+  {
     date: '2026-07-11',
     title: '伊利诺伊州签署AI安全法，要求独立审计和举报人保护',
     summary: '州长JB Pritzker签署SB 315号AI安全法案，要求AI企业接受独立第三方审计并建立举报人保护机制，条款比纽约和加州同类法案更严格。',
