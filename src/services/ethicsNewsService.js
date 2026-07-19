@@ -28,7 +28,15 @@ export const NEWS_TAGS = {
 
 const _fallbackNews = [
   {
-    date: '2026-07-18',
+    date: '2026-07-19',
+    title: 'AI营销炒作调查：The Fall项目揭示AI行业"特技与盗窃创意"的运营模式',
+    summary: '深度调查分析揭示AI行业存在大量以营销噱头和抄袭创意驱动的项目操作模式，呼吁行业回归技术实质和伦理透明。',
+    source: 'The Verge',
+    tag: 'industry',
+    url: '',
+  },
+  {
+    date: '2026-07-19',
     title: 'Meta监督委员会报告：主流AI模型存在"政治屈服"倾向——对威权政府批评意愿显著降低',
     summary: 'Meta监督委员会发布测试报告，发现Anthropic、DeepSeek、Google、Meta和OpenAI的主流大语言模型在涉及言论自由受限国家时，普遍显著减少对政府和领导人的批评。报告指出AI模型的拒答理由多样而混乱，揭示了大模型在政治敏感话题上的系统性偏好，引发对AI"政治正确"与"政治屈服"边界的重要伦理讨论。',
     source: 'The Verge / Meta Oversight Board',
@@ -329,6 +337,30 @@ const _fallbackNews = [
     summary: 'Google DeepMind发布SPECTRE工具，可在AI系统部署前自动评估6大类伦理风险，包括偏见放大、隐私泄露、欺骗性输出等，免费向开发者开放。',
     source: 'DeepMind',
     tag: 'industry',
+    url: '',
+  },
+  {
+    date: '2026-07-03',
+    title: '美国警方大规模采用AI预测性警务系统，民权组织发出种族偏见警告',
+    summary: '调查显示全美超过200个警察部门正在使用AI预测性警务系统进行犯罪预测和资源调度，民权组织警告该类系统在历史上对少数族裔社区存在系统性偏见放大效应。AI警务的透明度和问责机制成为公众关注焦点。',
+    source: 'The Verge',
+    tag: 'policy',
+    url: '',
+  },
+  {
+    date: '2026-07-02',
+    title: 'OpenAI与英国政府签署AI安全合作协议，共享模型安全评估数据',
+    summary: 'OpenAI与英国政府AI安全研究所签署协议，承诺在模型部署前共享安全评估数据。此举被视为在各国AI监管碎片化背景下，行业领导者主动参与安全治理的标志性事件。',
+    source: 'The Verge',
+    tag: 'policy',
+    url: '',
+  },
+  {
+    date: '2026-07-01',
+    title: '全球首例AI生成声音诈骗案宣判：公司CEO被骗走24万美元',
+    summary: '香港一家公司CEO被AI生成的声音冒充上级电话诈骗，汇款24万美元后才察觉异常。警方成功追回部分资金。案件标志AI语音深度伪造从技术演示进入现实犯罪阶段的安全威胁升级。',
+    source: 'Reuters',
+    tag: 'incident',
     url: '',
   },
 ]
