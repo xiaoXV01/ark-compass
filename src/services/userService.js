@@ -1,13 +1,11 @@
 /**
- * 用户身份服务 — 方舟与罗盘
+ * 用户身份服务 — 方舟与罗盘 (v2)
  *
- * 提供轻量级用户身份管理：
- *   - 启动时自动创建匿名用户
- *   - 支持设置/修改昵称
- *   - 通过 localStorage 缓存当前用户 ID
- *   - 为后续评测记录关联用户身份
+ * 支持两种模式：
+ *   - 匿名模式：启动时自动创建匿名用户（向后兼容，无需后端）
+ *   - 登录模式：通过 JWT Token 连接后端账户系统
  *
- * 注意：不需要注册/登录/密码，一切以匿名 + 昵称为基础。
+ * 通过 localStorage 缓存当前用户状态。
  */
 
 import {
@@ -15,22 +13,20 @@ import {
   getUserIdentity,
   updateUserIdentity,
 } from '../utils/db.js'
+import { getToken, isLoggedIn, getMe } from './authApi.js'
 
-// ─── localStorage 键名 ──────────────────────────────────────
+// ─── localStorage 键 ────────────────────────────────────────
 
 const LS_CURRENT_USER_ID = 'ark_compass_current_user_id'
+const LS_ANON_USER_ID = 'ark_compass_anon_user_id'
 
 // ─── 运行时缓存 ──────────────────────────────────────────────
 
-/** @type {import('../utils/db.js').UserIdentity|null} */
+/** @type {Object|null} */
 let _currentUser = null
 
 // ─── 工具函数 — 生成短 ID ────────────────────────────────────
 
-/**
- * 生成一个较短的可读 ID（8位十六进制）
- * 类似 UUID 但更短，适用于本地匿名用户
- */
 function generateUserId() {
   const chars = '0123456789abcdef'
   let id = ''
@@ -45,64 +41,110 @@ function generateUserId() {
 /**
  * 初始化当前用户。
  *
- * 如果 localStorage 中已有缓存 userId，则加载该用户；
- * 如果缓存不存在或加载失败，则创建一个新的匿名用户。
+ * 优先级：
+ *   1. JWT Token 存在 → 调用 /api/auth/me 恢复登录用户
+ *   2. 否则走匿名模式
+ *
  * 建议在应用启动时调用一次。
  *
- * @returns {Promise<import('../utils/db.js').UserIdentity>}
+ * @returns {Promise<Object>}
  */
 export async function initUser() {
-  // 尝试从 localStorage 恢复当前用户 ID
-  const cachedUserId = localStorage.getItem(LS_CURRENT_USER_ID)
+  // 尝试从 token 恢复
+  if (isLoggedIn()) {
+    try {
+      const data = await getMe()
+      if (data && data.user) {
+        _currentUser = {
+          ...data.user,
+          isAnonymous: false,
+        }
+        localStorage.setItem(LS_CURRENT_USER_ID, `auth_${data.user.id}`)
+        return _currentUser
+      }
+    } catch {
+      // token 无效，清除并回退匿名
+      const { logout } = await import('./authApi.js')
+      logout()
+    }
+  }
 
-  if (cachedUserId) {
-    const user = await getUserIdentity(cachedUserId)
+  // 匿名模式
+  return initAnonymous()
+}
+
+/**
+ * 初始化匿名用户（向后兼容）
+ */
+async function initAnonymous() {
+  const anonId = localStorage.getItem(LS_ANON_USER_ID)
+
+  if (anonId) {
+    const user = await getUserIdentity(anonId)
     if (user) {
-      _currentUser = user
-      // 更新最后活跃时间
+      _currentUser = { ...user, isAnonymous: true }
+      localStorage.setItem(LS_CURRENT_USER_ID, user.userId)
       await updateUserIdentity(user.userId, {})
       return user
     }
   }
 
-  // 缓存不存在或用户已被删除，创建新匿名用户
   const newUser = await createUserIdentity({
     userId: generateUserId(),
     nickname: '',
   })
 
-  // 缓存 userId 到 localStorage
+  localStorage.setItem(LS_ANON_USER_ID, newUser.userId)
   localStorage.setItem(LS_CURRENT_USER_ID, newUser.userId)
-  _currentUser = newUser
+  _currentUser = { ...newUser, isAnonymous: true }
 
   return newUser
 }
 
 /**
- * 获取当前用户对象。
- * 如果尚未初始化，返回 null。
- *
- * @returns {import('../utils/db.js').UserIdentity|null}
+ * 外部调用：登录成功后设置当前用户
+ * @param {Object} user - 后端返回的 user 对象 { id, email, nickname, role }
+ */
+export function setUser(user) {
+  _currentUser = {
+    id: user.id,
+    email: user.email,
+    nickname: user.nickname,
+    role: user.role,
+    isAnonymous: false,
+  }
+  localStorage.setItem(LS_CURRENT_USER_ID, `auth_${user.id}`)
+}
+
+/**
+ * 登出：清除登录态，回退匿名模式
+ */
+export async function doLogout() {
+  const { logout } = await import('./authApi.js')
+  logout()
+  _currentUser = null
+  localStorage.removeItem(LS_CURRENT_USER_ID)
+  return initAnonymous()
+}
+
+/**
+ * 获取当前用户对象
  */
 export function getCurrentUser() {
   return _currentUser
 }
 
 /**
- * 获取当前用户的 ID。
- * 如果尚未初始化，返回 null。
- *
- * @returns {string|null}
+ * 获取当前用户 ID
  */
 export function getUserId() {
-  return _currentUser ? _currentUser.userId : null
+  return _currentUser
+    ? _currentUser.userId || `auth_${_currentUser.id}`
+    : null
 }
 
 /**
- * 设置/修改当前用户的昵称。
- *
- * @param {string} name - 新昵称（空字符串表示重置为匿名）
- * @returns {Promise<import('../utils/db.js').UserIdentity>}
+ * 设置/修改当前用户的昵称
  */
 export async function setNickname(name) {
   if (!_currentUser) {
@@ -110,13 +152,23 @@ export async function setNickname(name) {
   }
 
   const trimmed = (name || '').trim()
+
+  // 登录用户走后端 API
+  if (!_currentUser.isAnonymous) {
+    const { updateProfile } = await import('./authApi.js')
+    const data = await updateProfile({ nickname: trimmed })
+    if (data && data.user) {
+      _currentUser = { ..._currentUser, nickname: data.user.nickname }
+    }
+    return _currentUser
+  }
+
+  // 匿名用户走本地存储
   const updated = await updateUserIdentity(_currentUser.userId, {
     nickname: trimmed,
   })
-
   if (updated) {
-    _currentUser = updated
+    _currentUser = { ...updated, isAnonymous: true }
   }
-
   return _currentUser
 }

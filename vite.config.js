@@ -7,6 +7,14 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 // https://vite.dev/config/
 export default defineConfig({
   base: '/ark/',
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3120',
+        changeOrigin: true,
+      },
+    },
+  },
   plugins: [
     vue(),
     ElementPlus({}),

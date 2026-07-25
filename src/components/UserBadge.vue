@@ -1,13 +1,30 @@
 <template>
   <div class="user-badge-wrapper">
-    <!-- 用户浮标 -->
-    <div class="user-badge" @click="showDialog = true" :title="displayName">
-      <svg class="badge-avatar-icon" viewBox="0 0 24 24" width="16" height="16">
-        <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M4 22c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="none" stroke="currentColor" stroke-width="1.5"/>
-      </svg>
-      <span class="badge-name">{{ displayName }}</span>
-      <span class="badge-gear">⚙</span>
+    <!-- 未登录 → 登录/注册入口 -->
+    <template v-if="isAnon">
+      <router-link to="/login" class="auth-link login-link">登录</router-link>
+      <router-link to="/register" class="auth-link register-link">注册</router-link>
+    </template>
+
+    <!-- 已登录 → 用户浮标 + 下拉菜单 -->
+    <div v-else class="user-menu-wrapper" @click="toggleMenu">
+      <div class="user-badge" :title="displayName">
+        <svg class="badge-avatar-icon" viewBox="0 0 24 24" width="16" height="16">
+          <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M4 22c0-4.4 3.6-8 8-8s8 3.6 8 8" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        </svg>
+        <span class="badge-name">{{ displayName }}</span>
+        <span class="badge-gear">⚙</span>
+      </div>
+      <div v-if="menuOpen" class="user-dropdown" @click.stop>
+        <div class="dropdown-item" @click="openNicknameDialog">
+          <span>✏️</span> 修改昵称
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="dropdown-item logout" @click="handleLogout">
+          <span>🚪</span> 退出登录
+        </div>
+      </div>
     </div>
 
     <!-- 修改昵称弹窗 -->
@@ -89,12 +106,16 @@
  *   - 点击弹出对话框修改昵称
  *   - 数据持久化到 IndexedDB
  */
-import { ref, computed, onMounted, nextTick } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { useRouter } from 'vue-router'
 import {
   getCurrentUser,
   getUserId,
   setNickname,
+  doLogout,
 } from '../services/userService.js'
+
+const router = useRouter()
 
 // ─── 响应式状态 ──────────────────────────────────────────────
 
@@ -102,6 +123,7 @@ const showDialog = ref(false)
 const nickname = ref('')
 const saving = ref(false)
 const nicknameInput = ref(null)
+const menuOpen = ref(false)
 
 // ─── 计算属性 ────────────────────────────────────────────────
 
@@ -112,6 +134,12 @@ const displayName = computed(() => {
     return user.nickname
   }
   return '匿名·方舟旅行者'
+})
+
+/** 是否匿名用户 */
+const isAnon = computed(() => {
+  const user = getCurrentUser()
+  return !user || user.isAnonymous
 })
 
 /** 当前用户 ID 简短展示 */
@@ -136,6 +164,43 @@ onMounted(() => {
 
 // ─── 方法 ────────────────────────────────────────────────────
 
+/** 切换下拉菜单 */
+function toggleMenu() {
+  menuOpen.value = !menuOpen.value
+}
+
+/** 关闭下拉（点击外部） */
+function closeMenu(e) {
+  if (menuOpen.value) {
+    menuOpen.value = false
+  }
+}
+
+onMounted(() => {
+  document.addEventListener('click', closeMenu)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', closeMenu)
+})
+
+/** 打开昵称弹窗 */
+function openNicknameDialog() {
+  menuOpen.value = false
+  const user = getCurrentUser()
+  if (user && user.nickname) {
+    nickname.value = user.nickname
+  }
+  showDialog.value = true
+}
+
+/** 退出登录 */
+async function handleLogout() {
+  menuOpen.value = false
+  await doLogout()
+  router.push('/')
+}
+
 /** 保存昵称 */
 async function saveNickname() {
   saving.value = true
@@ -156,6 +221,48 @@ async function saveNickname() {
   display: flex;
   align-items: center;
   margin-left: 12px;
+  position: relative;
+}
+
+/* 登录/注册链接 */
+.auth-link {
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.login-link {
+  color: var(--compass);
+  border-color: rgba(0, 180, 216, 0.25);
+  margin-right: 8px;
+}
+
+.login-link:hover {
+  border-color: var(--compass);
+  box-shadow: 0 0 10px var(--compass-glow);
+  background: rgba(0, 180, 216, 0.06);
+}
+
+.register-link {
+  color: var(--ark);
+  border-color: rgba(255, 140, 66, 0.25);
+}
+
+.register-link:hover {
+  border-color: var(--ark);
+  box-shadow: 0 0 10px var(--ark-glow);
+  background: rgba(255, 140, 66, 0.06);
+}
+
+/* 用户下拉菜单 */
+.user-menu-wrapper {
+  position: relative;
 }
 
 .user-badge {
@@ -180,6 +287,54 @@ async function saveNickname() {
   color: var(--brass-light);
   box-shadow: 0 0 10px rgba(184, 134, 11, 0.15);
   background: rgba(184, 134, 11, 0.05);
+}
+
+/* 下拉菜单 */
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 180px;
+  background: rgba(46, 49, 52, 0.98);
+  border: 1px solid rgba(100, 95, 88, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  padding: 6px 0;
+  z-index: 200;
+  backdrop-filter: blur(12px);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1px;
+}
+
+.dropdown-item:hover {
+  background: rgba(184, 134, 11, 0.08);
+  color: var(--text-primary);
+}
+
+.dropdown-item.logout {
+  color: #c77575;
+}
+
+.dropdown-item.logout:hover {
+  background: rgba(199, 117, 117, 0.1);
+  color: #e08888;
+}
+
+.dropdown-divider {
+  height: 1px;
+  margin: 4px 12px;
+  background: rgba(100, 95, 88, 0.12);
 }
 
 .badge-avatar-icon {
