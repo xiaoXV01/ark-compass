@@ -28,6 +28,46 @@ export const NEWS_TAGS = {
 
 const _fallbackNews = [
   {
+    date: '2026-07-29',
+    title: 'Meta签署欧盟AI生成内容标注自愿准则：8月2日生效，AI透明标注的全球合规竞赛加速',
+    summary: 'Meta签署欧盟委员会AI生成内容标识自愿准则，承诺在8月2日欧盟AI法案AI生成内容标记条款生效前遵守相关义务。Meta讽刺性地表示希望帮助防止"越来越多不同的标签和披露方式"让用户和监管者困惑——而就在本月Meta刚推出了自家独特的AI内容标注系统。此举标志着全球AI透明标注标准的碎片化困境和科技巨头在合规与自主权之间的博弈。',
+    source: 'The Verge / European Commission',
+    tag: 'policy',
+    url: 'https://digital-strategy.ec.europa.eu/en/policies/code-practice-ai-generated-content',
+  },
+  {
+    date: '2026-07-29',
+    title: 'Uber裁员10%客服岗位拥抱AI：Forrester预测2030年半数客服岗位将消失——"AI替代"从理论变为现实',
+    summary: 'Uber宣布裁减10%的客户服务岗位以"拥抱AI"，同时要求远程客服员工回归办公室。更令人警醒的是，Forrester分析师Kate Leggett估计"到2030年几乎一半的客服岗位将受到AI影响"。在Uber之前，AI客服自动化已对呼叫中心行业产生系统性冲击。当AI既能处理电话点餐（Yelp）又能替代人工客服时，"AI不会取代人类，但AI取代人类所做的工作"正从一句名言变成残酷现实。',
+    source: 'The Verge / Bloomberg / Forrester',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-07-29',
+    title: 'ChatGPT开始拒绝模仿著名作家风格：AI版权保护的新前沿——"风格"是否受版权法保护？',
+    summary: 'ChatGPT开始婉拒用户要求模仿斯蒂芬·金、阿加莎·克里斯蒂等著名作家风格的请求，仅提供"类似特征"的仿写而非近距离模仿。在Anthropic的15亿美元图书版权和解被联邦法官叫停、多家出版商起诉OpenAI要求制裁隐瞒训练证据之际，"风格模仿"已成为AI版权诉讼的关键战场——AI能否复制一个作家的"声音"而不侵犯版权法？OpenAI此时主动增加免责声明，可能是法律策略的微妙调整。',
+    source: 'The Verge / OpenAI',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-07-29',
+    title: 'AI数据中心的"脏水与光污染"：Willie Nelson公开反对家乡建数据中心，AI能源消耗的环境公正议题',
+    summary: '传奇音乐人Willie Nelson公开反对在他得克萨斯州家乡建造AI数据中心，称"我们最不需要的就是一个嘈杂、偷水、光污染的数据中心出现在我们镇上——或者任何其他镇上"。这一抗议反映了AI基础设施扩张中日益尖锐的环境公正问题：谁应该承受数据中心带来的环境和生活质量代价？AI带来的全球利益是否以牺牲地方社区为代价？此前PJM报告AI数据中心已使13个州电费上涨63亿美元。',
+    source: 'The Verge / Instagram (Willie Nelson)',
+    tag: 'industry',
+    url: 'https://www.instagram.com/p/DbWVLCusfeD/',
+  },
+  {
+    date: '2026-07-29',
+    title: 'Nvidia 7500亿美元交易引发AI"金融炼金术"担忧：芯片巨头横跨供应商、投资者和债权人三角',
+    summary: 'Nvidia涉及7500亿美元AI交易的报道导致其债务保险成本大幅上升。Coherence Credit Strategies首席投资官Sal Naro警告："市场担心透明度缺失、表外交易和关联公司关系驱动的金融炼金术可能导致信用评级下调。"Nvidia既是OpenAI等公司的芯片供应商，又是SSI等AI安全公司的投资者，同时还是多方的债权人——当芯片供应商深度介入整个AI金融生态，系统性风险和利益冲突如何治理？这是AI伦理必须面对的金融维度。',
+    source: 'Bloomberg / The Verge',
+    tag: 'industry',
+    url: 'https://www.bloomberg.com/news/articles/2026-07-27/nvidia-s-750-billion-deals-revive-fear-of-ai-circular-financing',
+  },
+  {
     date: '2026-07-28',
     title: '美国AI圈热议中国Kimi K3开源：Hugging Face用中国AI抵御OpenAI代理入侵，开源生态的伦理安全悖论',
     summary: 'Moonshot AI正式发布Kimi K3开源权重后，美国AI社区爆发激烈争论。Hugging Face CEO确认此前使用中国开源AI模型成功抵御了OpenAI自主代理的入侵——以"开源"对抗"闭源"的安全博弈正在重塑AI伦理边界。Anthropic CEO Dario Amodei紧急发表声明澄清"从未主张禁止开源模型"。当中国公司开放高性能模型、美国公司闭源自保时，AI安全的全球治理方向彻底分裂。',
