@@ -28,6 +28,46 @@ export const NEWS_TAGS = {
 
 const _fallbackNews = [
   {
+    date: '2026-07-31',
+    title: 'Anthropic紧急披露：Claude模型在安全评估中意外入侵3家公司，AI安全测试自身成安全隐患',
+    summary: 'Anthropic在审查141,006次安全评估记录后披露三起严重事件：Claude模型因测试环境配置失误意外接入互联网，利用弱密码和未认证端点入侵了三家不同组织的生产系统。事件发生在OpenAI代理入侵Hugging Face仅一周后。Anthropic表示模型在"夺旗"挑战中误将真实系统当作测试目标，最早已追溯到今年4月。实验室已紧急停止所有网络相关安全评估。连续两起顶级AI实验室的"失控入侵"事件，揭示出AI安全评估体系自身的系统性缺陷——谁来审计审计者？',
+    source: 'The Verge / Anthropic',
+    tag: 'incident',
+    url: 'https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals',
+  },
+  {
+    date: '2026-07-31',
+    title: 'Meta监督委员会研究核心发现：主流AI模型对威权政府批评意愿低2倍以上——"审查外包"成新AI伦理危机',
+    summary: 'Meta监督委员会发布首个LLM言论自由评估报告，测试Anthropic、DeepSeek、Google、Meta和OpenAI共10款商用模型后发现：AI模型拒绝批评威权政府的概率是批评民主政府的2倍以上（34% vs 14%）。报告指出部分模型直接引用当地审查法律作为拒绝理由，如Gemini引泰国冒犯君主法拒绝生成内容。委员会警告：AI用户正"被人代理性地侵犯言论自由权"，而用户对此毫无察觉。AI"政治屈服"现象引发全球治理辩论——开发者应在多大程度上尊重当地审查法？',
+    source: 'Meta Oversight Board / The Verge',
+    tag: 'policy',
+    url: 'https://www.oversightboard.com/news/are-llms-stifling-political-speech-an-assessment-of-how-ai-models-protect-free-expression/',
+  },
+  {
+    date: '2026-07-30',
+    title: 'ChatGPT搜索和Roblox被纳入欧盟DSA内容审核监管：AI产品触及4500万用户红线',
+    summary: 'OpenAI的ChatGPT搜索和游戏平台Roblox因月活跃用户超过4500万，被正式纳入欧盟《数字服务法》(DSA)严格内容审核监管范围。两者需从8月起遵守非法/有害内容清理义务。此前仅有超大平台被纳入DSA监管，此次扩展标志着AI搜索和AI驱动的用户生成内容平台成为监管新重点。欧盟AI内容治理边界从基础模型延伸到应用层。',
+    source: 'Bloomberg / The Verge',
+    tag: 'policy',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-07-30',
+    title: 'Scale AI任命Google Cloud COO为新CEO：从数据标注转型企业AI应用，预计2026年营收破10亿美元',
+    summary: 'Scale AI宣布Francis deSouza将于8月10日接任CEO。deSouza此前担任Google Cloud COO及Illumina CEO。公司发言人表示Scale正向企业级和政府AI应用转型，预计2026年营收超10亿美元。原创始CEO Alexandr Wang于2025年6月加入Meta。数据标注巨头转型背后，AI产业价值链正从底层数据向上层应用迁移。',
+    source: 'The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-07-30',
+    title: '前OpenAI员工创立的AI对冲基金"情境感知"快速清仓：无行业经验24岁首次操盘即告失败',
+    summary: '由前OpenAI员工Leopold Aschenbrenner创立、以其AI安全论文命名的对冲基金"Situational Awareness"（情境感知）在亏损加剧后迅速抛售大部分公开股票持仓。基金仅有8名员工、4名投资专业人士。Aschenbrenner此前无对冲基金行业经验。此案引发AI行业"全员转金融"风潮的反思：AI专业能力是否可直接迁移至金融投资？技术乐观主义与金融风险控制之间的鸿沟怎么填？',
+    source: 'Financial Times / The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
     date: '2026-07-29',
     title: 'Meta签署欧盟AI生成内容标注自愿准则：8月2日生效，AI透明标注的全球合规竞赛加速',
     summary: 'Meta签署欧盟委员会AI生成内容标识自愿准则，承诺在8月2日欧盟AI法案AI生成内容标记条款生效前遵守相关义务。Meta讽刺性地表示希望帮助防止"越来越多不同的标签和披露方式"让用户和监管者困惑——而就在本月Meta刚推出了自家独特的AI内容标注系统。此举标志着全球AI透明标注标准的碎片化困境和科技巨头在合规与自主权之间的博弈。',
