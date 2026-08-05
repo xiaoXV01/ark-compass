@@ -27,6 +27,49 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-05 新 ──
+  {
+    date: '2026-08-05',
+    title: '15位共和党州检察长联名要求OpenAI保存Hugging Face入侵事件记录，AI安全测试失控引发跨党派政治关注',
+    summary: '15位共和党州检察长致函Sam Altman，要求OpenAI保留所有与Hugging Face入侵相关的信息记录并立即停止高风险网络安全测试。信中警告"OpenAI无力或不愿确保其产品的安全性，对我们的州构成实质性伤害的紧迫风险"。此举发生在美国白宫召集AI公司讨论自愿模型测试框架的前夕——AI安全治理正从行业自律加速走向政治高压。',
+    source: 'The Verge',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence/972380/open-ai-hugging-face-hack-ai-safety-warning',
+  },
+  {
+    date: '2026-08-05',
+    title: '白宫将于周二向AI公司通报模型测试框架：Anthropic、OpenAI、Google悉数出席',
+    summary: '据CNBC报道，美国白宫将向AI公司领导人通报一份自愿性AI模型测试框架，Anthropic、OpenAI和Google均将出席此次会议。此前有报道称白宫不打算公开分享该测试框架，引发AI透明治理的质疑。此次通报标志着联邦层面AI安全监管从立法推动转向行政指导的新路径。',
+    source: 'CNBC / The Verge',
+    tag: 'policy',
+    url: 'https://www.cnbc.com/2026/08/03/white-house-ai-companies-voluntary-framework-meeting.html',
+  },
+  {
+    date: '2026-08-05',
+    title: 'AI"垃圾报告"泛滥：Apple限制漏洞提交流量并设置30天冷静期',
+    summary: '据Financial Times报道，苹果公司因收到大量由AI生成的安全漏洞"幻觉报告"，已引入提交上限和30天冷静期机制。苹果同时内部使用AI帮助管理漏洞报告的激增——"用AI对抗AI垃圾"成为安全领域的讽刺性新常态。此事件暴露了AI时代安全研究质量控制的全新伦理挑战。',
+    source: 'Financial Times / The Verge',
+    tag: 'incident',
+    url: 'https://www.ft.com/content/4532122d-90f2-4433-9df6-ca99d8a141d2',
+  },
+  {
+    date: '2026-08-05',
+    title: 'AI数据中心抗议浪潮升级：至少37人被捕，数据正义运动进入新阶段',
+    summary: 'Futurism统计发现至少37人因抗议AI数据中心建设被捕，另有12起警方介入阻止抗议者"直面市政领导"的案件（实际数字"可能高得多"）。从Willie Nelson公开反对家乡数据中心到普通民众大规模被捕，AI基础设施扩张引发的环境正义和地方自治争议已达到沸点。',
+    source: 'Futurism / The Verge',
+    tag: 'industry',
+    url: 'https://futurism.com/artificial-intelligence/regular-people-data-center-arrest-protest',
+  },
+  {
+    date: '2026-08-04',
+    title: 'Google将Gemini AI引入K-12教室：AI教育的机遇与儿童数据隐私挑战',
+    summary: 'Google宣布将Gemini推向K-12学生的Classroom平台。此举标志着生成式AI正式进入基础教育领域，但也引发关于儿童数据隐私、AI对学生认知发展影响以及教育公平性的广泛讨论——当AI辅助学习工具与人类教师共存时，教育资源分配的不平等是否会进一步加剧？',
+    source: 'The Verge',
+    tag: 'policy',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  // ── 旧闻 ──
+
   {
     date: '2026-07-31',
     title: 'Anthropic紧急披露：Claude模型在安全评估中意外入侵3家公司，AI安全测试自身成安全隐患',
