@@ -27,6 +27,48 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-09 新 ──
+  {
+    date: '2026-08-09',
+    title: 'Google AI领导层变动真相：产品速度与内部伦理冲突的博弈',
+    summary: '据The Verge报道，Google近期AI领导层变动源于内部对产品发布速度的根本分歧——一方主张快速推进以保持竞争力，另一方坚持伦理审查不应被牺牲。这场博弈暴露了AI行业一个普遍困境：当商业竞争压力与AI伦理承诺相冲突时，企业治理结构能否真正保护伦理底线？Google的案例表明，即便是拥有最强AI伦理团队的科技巨头，也难以在市场速度与安全治理之间找到可持续的平衡点。',
+    source: 'The Verge',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-09',
+    title: '佛罗里达等州数据中心禁令揭示AI反噬运动中的跨党派共识',
+    summary: '佛罗里达等多个州通过立法或行政令限制新建AI数据中心，理由涵盖水资源消耗、电力负荷、噪音污染和地方自治权。这场反AI数据中心运动凝聚了罕见的两党共识——左翼关注环境正义，右翼坚持地方自治。从Willie Nelson公开抗议家乡建数据中心到至少37人因抗议被捕，AI基础设施扩张引发的社会反弹已超越党派界限。该运动提出一个根本性伦理问题：AI带来的全球红利是否应以牺牲地方社区的环境和生活质量为代价？',
+    source: 'The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-09',
+    title: 'Amazon获准在德州每年存储3300万吨CO2：AI数据中心的碳代价开始显现',
+    summary: 'Amazon旗下一处位于德州Pecos County的地块获批每年可封存高达3300万吨CO2。在AI算力需求爆发式增长的背景下，科技巨头的碳管理承诺与AI能源消耗之间的张力日益凸显。当一家公司既在加速AI数据中心建设又在寻求碳封存许可时，环境公正的质疑在所难免：碳封存是真正的气候解决方案，还是为AI碳足迹开出的"赎罪券"？此前PJM报告曾揭露AI数据中心已使13个州电费上涨63亿美元。',
+    source: 'The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-09',
+    title: 'Anthropic招募"内部风险调查员"：AI公司安全治理的内部化挑战',
+    summary: 'Anthropic发布招聘启事，招募"内部风险调查员"负责调查内部风险事件、监控针对员工的外部威胁、并对员工进行"敏感访谈"。在OpenAI、Anthropic、Meta三家公司的AI安全测试连续翻车的背景下，这一招聘揭示了AI安全治理的新维度：当外部审计尚未到位时，内部自我监管能否真正有效？"由谁来监督监督者"这一古老治理难题在AI时代获得了新的紧迫性。',
+    source: 'The Verge / Anthropic',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-09',
+    title: '马斯克的Grokipedia三个月未更新：AI维基百科项目陷入停滞',
+    summary: '据Lawfare与The Verge调查，马斯克xAI推出的AI生成百科全书Grokipedia自4月24日以来没有任何文章更新，34,519个页面中的225,496条建议编辑无一被采纳或拒绝。马斯克曾豪言Grokipedia将是对Wikipedia的"巨大改进"，如今该项目被用户质疑"已死亡"。作为AI替代人类知识生产模式的重要实验，Grokipedia的停滞反映了AI生成信息可持续性和质量治理的根本挑战：当AI百科没有人类编辑社区的持续维护，信息准确性如何保证？',
+    source: 'The Verge / Lawfare',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence/976004/elon-musk-grokipedia-ai-wikipedia-not-updating-dead',
+  },
+
   // ── 2026-08-08 新 ──
   {
     date: '2026-08-08',
