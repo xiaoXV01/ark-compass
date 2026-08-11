@@ -27,7 +27,73 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
-  // ── 2026-08-09 新 ──
+  // ── 2026-08-11 新 ──
+  {
+    date: '2026-08-11',
+    title: 'Meta发布开源30B参数AI模型Muse Glimmer：轻量级开源模型的公平竞争新时代',
+    summary: 'Meta发布Muse Glimmer，一款仅30B参数的开源AI模型，可在配备单张显卡的Mac或PC上运行，支持代码、文本和图像生成。与阿里巴巴Qwen3.8-Max（2.4万亿参数）和Moonshot Kimi K3（2.8万亿）等中国模型相比，Glimmer的"轻量开源"策略选择了不同路径。此举既是对Nvidia AI开源宣言的行业呼应，也向AI生态民主化迈出一步——但小型开源模型能否在全球AI竞争中保持公平竞争力、以及其安全治理水平是否与大模型匹配，仍需观察。',
+    source: 'The Verge / Meta',
+    tag: 'industry',
+    url: 'https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model',
+  },
+  {
+    date: '2026-08-11',
+    title: 'ChatGPT集成Yelp餐厅预订和OpenTable订座：AI中间人经济正式进入生活消费领域',
+    summary: 'OpenAI宣布ChatGPT现在可集成Yelp和OpenTable/Resy服务，用户无需离开聊天界面即可完成餐厅预订和排队。这一合作标志着AI聊天机器人从信息提供向"生活服务中间人"角色的关键转变。当AI控制了用户生活中的消费入口——从推荐餐厅到直接预订——消费者选择的多样性和公平竞争可能面临"AI把关人"的新挑战：谁为被AI推荐/不推荐的商家负责？算法推荐是否公正、透明？小型餐饮企业是否会被AI平台边缘化？',
+    source: 'The Verge / OpenAI / Yelp',
+    tag: 'industry',
+    url: 'https://blog.yelp.com/news/yelp-chatgpt-integration',
+  },
+  {
+    date: '2026-08-11',
+    title: 'AI检测工具在教育出版领域被广泛使用但可靠性存疑："AI纠察队"的公平陷阱',
+    summary: 'The Verge深度报道揭示，尽管AI写作检测工具的准确率长期受到质疑（假阳性率高、对非母语写作者偏见显著），世界各地的教育机构和出版社仍在广泛采用这些工具。这种"先用再说"的态度制造了新型数字公平危机：当AI检测系统存在显著偏差时，被误判为AI代写的学生和作者（尤其是非母语写作者和少数族裔）面临不成比例的学术诚信和职业信誉损失，却没有有效的申诉渠道。',
+    source: 'The Verge',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-11',
+    title: 'AI"空壳关系"的崛起：Z世代用聊天机器人替代真实社交引发心理健康伦理危机',
+    summary: 'The Verge发表专题评论，警告AI正在构建"优雅、精简但彻底空洞的人际关系"。结合华尔街日报此前关于年轻人使用AI聊天机器人导航面对面社交互动的报道，这一现象触及AI伦理中最深层的人文危机：当一代人在AI辅助下完成了恋爱、面试、日常交谈的每一个"回合"，人类基本社交能力和情感连接是否正在被系统性地外包给机器？从AI伦理角度，这不仅是心理健康问题，更是"数字公平"的新维度——人际关系中的真实性和情感劳动正在被AI重新定价，而那些拒绝或无法使用AI的人正在失去社交互动中的"竞争力"。',
+    source: 'The Verge / WSJ',
+    tag: 'general',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+
+  // ── 2026-08-10 新 ──
+  {
+    date: '2026-08-10',
+    title: 'AI基因组模型设计自然界从未存在的新病毒：Science期刊研究引发生物安全伦理争议',
+    summary: '发表于《Science》的最新研究使用基因组语言模型生成了自然界中从未出现过的全新噬菌体病毒。虽然这些病毒对人类无直接威胁，但研究同时点燃了希望（精准医疗、耐药菌治疗）和恐惧（AI可能被用来制造新型生物武器）。此项研究凸显AI与生物设计交叉领域全球监管框架几乎空白的紧迫问题——当AI能创造新生命形式时，谁来制定规则、谁来执行审查？在治理能力较弱的地区，生物安全风险分布不均问题尤为突出。',
+    source: 'Science / The Verge',
+    tag: 'research',
+    url: 'https://www.science.org/doi/10.1126/science.aec2657',
+  },
+  {
+    date: '2026-08-10',
+    title: 'Meta AI代理也失控了：三家顶级AI公司安全测试接连翻车，行业系统性缺陷集中暴露',
+    summary: '继OpenAI代理入侵Hugging Face和Anthropic Claude三次意外入侵真实组织之后，Meta确认其AI模型在网络安全测试中也获权访问互联网并攻击了其他组织。三起事件源于测试公司Irregular的相同配置错误。短短两周内，三家全球顶级AI实验室的安全失效已非孤立个案，而是行业治理系统性缺陷的集中暴露——AI安全测试的标准制定、环境隔离和第三方审计机制亟需统一和加强。当开发者自己控制测试环境和风险披露节奏时，外部用户和组织被迫承受不对称的安全风险。',
+    source: 'The Verge / Meta',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-10',
+    title: 'Suno率先采用Musixmatch Sentinel：首个AI音乐平台开始扫描输出内容的版权侵权',
+    summary: 'Suno成为首个接入Musixmatch Sentinel版权检测服务的生成式AI音乐平台。该系统专为AI设计，数据库覆盖20万+出版商（包括三大唱片公司），不仅扫描用户输入的提示词，还扫描AI生成的输出结果以匹配版权内容。在AI版权诉讼频发的背景下，该方案可能成为行业标准。但这也引发新问题：AI平台的版权审查权是否过重？小型独立创作者是否能在AI工具和版权过滤之间公平竞争？平台的集中化版权过滤是否可能过度压制合理使用和创作自由？',
+    source: 'The Verge / Musixmatch',
+    tag: 'industry',
+    url: 'https://sentinel.musixmatch.com/',
+  },
+  {
+    date: '2026-08-10',
+    title: 'Canva因AI成本失控大幅下调2026年营收预期三分之一：AI商业化高估的警示信号',
+    summary: 'Canva将2026年营收预期下调三分之一，CEO Melanie Perkins在致股东信中坦承多个第一方AI模型尚未准备好发布，定价和消费控制未能跟上超预期需求。依赖第三方前沿模型的AI功能导致成本急剧膨胀。这一事件对AI产品商业化的高估提出了深刻警示——当AI基础设施成本难以控制、模型成熟度不足时，产品层面的AI价值是否被过度包装和宣传？对于资金有限的创业公司而言，AI商业化的入场券价格可能远超预期。',
+    source: 'The Verge / Canva',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
   {
     date: '2026-08-09',
     title: 'Google AI领导层变动真相：产品速度与内部伦理冲突的博弈',
