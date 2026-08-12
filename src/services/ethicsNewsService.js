@@ -27,6 +27,39 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-12 新 ──
+  {
+    date: '2026-08-12',
+    title: 'OpenAI伦理负责人Chloé Bakalar离职，任职不足一年且无继任者：AI伦理高管职位岌岌可危',
+    summary: '据Financial Times报道，OpenAI伦理负责人Chloé Bakalar已于上月离开公司，任职时间不足一年，且目前没有继任者。Bakalar此前曾在Meta担任首席伦理学家超过三年。OpenAI伦理主管的快速流失现状——此前多位AI安全高管相继离职——引发行业对AI公司是否真正重视内部伦理治理的深刻质疑。当一个市值数千亿的AI领导者在CEO（Sam Altman）之外缺少独立的伦理决策声音时，安全承诺的可信度正在被削弱。',
+    source: 'Financial Times / The Verge',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-12',
+    title: '中国否决Meta收购Manus，AI代理公司回归独立运营：全球AI地缘政治的"防火墙"效应',
+    summary: 'Manus正式宣布与Meta分拆，恢复独立运营。Meta去年以20亿美元收购这家AI代理初创公司，已部分整合其工具至旗下平台。然而中国监管部门否决了该交易，迫使双方分道扬镳。这成为全球AI地缘政治的标志性案例——当AI技术跨越国界时，国家安全审查正在成为新的"天花板"。对AI初创公司而言，跨国并购的未来变得更加不确定。',
+    source: 'The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-12',
+    title: 'Nvidia发布Nemotron 3.5 Lightning轻量级开源模型：芯片巨头加码"真正开源"战略',
+    summary: 'Nvidia发布Nemotron 3.5 Lightning，一款专为AI代理协作设计的轻量级开源模型，面向代码审查、客服问答和安全告警监控等特定任务。该模型是Nemotron"真正开源"系列最新成员，在中国开源模型日益强大的背景下，美国芯片巨头以开源策略争夺AI生态话语权。但"真正开源"面临经典两难：开源推动民主化创新，但也降低了恶意滥用的门槛。',
+    source: 'The Verge / Nvidia',
+    tag: 'industry',
+    url: 'https://www.nvidia.com/en-us/ai-data-science/foundation-models/nemotron/',
+  },
+  {
+    date: '2026-08-12',
+    title: 'OpenAI聊天机器人领导地位面临竞争收紧：AI行业"寡头"格局加速瓦解',
+    summary: 'The Verge分析指出，OpenAI虽仍是聊天机器人领域的领头羊，但竞争对手正快速追赶。Google Gemini月活用户已达9.5亿、Meta开源模型持续迭代、中国模型迅速崛起，AI"一家独大"局面正在瓦解。竞争加剧带来更多选择和更低成本，但也引发AI安全标准碎片化的隐忧：在"赢家通吃"向"百家争鸣"的转变中，谁为跨模型的伦理标准负责？',
+    source: 'The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
   // ── 2026-08-11 新 ──
   {
     date: '2026-08-11',
