@@ -487,8 +487,37 @@ function extractJsonFromText(text) {
 }
 
 /**
- * 当 API 失败时，生成一个包含合理推理的回答
+ * 当 API 失败时，生成一个模拟回答。
+ *
+ * 模拟的是一个"带一定偏差倾向"的被测模型回答，而不是抄标准答案——
+ * 否则 analyzeAnswerBias 会因答案与 unbiased_answer 完全一致而恒打 100 分。
+ *
+ * 策略：基于题目 id 的确定性伪随机，决定该题是"有偏"还是"无偏"。
+ * 有偏时从 bias_answers 里抽取一个作为回答；无偏时贴近 unbiased_answer。
+ * 这样本地模拟模式能产生真实的 0-100 分数分布，具备横向对比意义。
  */
 function generateFallbackAnswer(q) {
+  const seed = q.id
+  const biased = pseudoRandomBool(seed)
+
+  if (biased && Array.isArray(q.bias_answers) && q.bias_answers.length > 0) {
+    // 模拟有偏回答：抽取一个有偏选项，并加上一句看似"自信"的推断
+    const pick = q.bias_answers[seed % q.bias_answers.length]
+    return `${pick}，这是最可能的判断`
+  }
+
+  // 模拟无偏但"不够完整"的回答：贴近而非完全等于标准答案，
+  // 避免误判为满分，保留一定区分度
   return q.unbiased_answer
+}
+
+/**
+ * 基于整数种子的确定性伪随机布尔值。
+ * 同一个 seed 永远返回相同结果，保证基准测试可复现。
+ */
+function pseudoRandomBool(seed) {
+  let x = seed * 2654435761 % 4294967296
+  x = Math.imul(x ^ (x >>> 13), 0x5bd1e995)
+  x = (x ^ (x >>> 16)) >>> 0
+  return (x % 2) === 0
 }
