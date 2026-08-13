@@ -30,6 +30,22 @@ const _fallbackNews = [
   // ── 2026-08-13 新 ──
   {
     date: '2026-08-13',
+    title: 'Twitch新增开关：让创作者决定自己的内容是否被用于训练亚马逊生成式AI模型',
+    summary: 'Twitch上线新开关，允许主播选择是否让自己的内容被用于训练亚马逊的生成式AI模型。此前外界批评平台默认将创作者内容纳入AI训练池、缺乏知情同意。这一举措将"AI训练数据的知情同意"从出版、音乐延伸至直播/短视频创作领域，但仅靠一个开关能否真正保障创作者的权益（尤其是小主播面对平台的议价劣势），仍待观察。AI训练数据的授权边界正在成为数字公平的核心战场。',
+    source: 'The Verge',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-13',
+    title: '字节跳动Seedance 2.5视频模型大幅强化版权拒绝能力：AI生成内容的"版权自觉"成为新卖点',
+    summary: 'Seedance 2.5相比2.0在生成更长可精细编辑片段的同时，显著提升了识别并拒绝按受版权保护素材生成输出的能力。此前Seedance已探索艺术家版税分成机制。在AI版权诉讼与创作者补偿双重压力下，视频生成模型也开始把"版权合规"作为核心产品能力宣传，AI内容生成从"能生成什么"转向"应拒绝生成什么"，标志着生成式AI伦理治理从被动应对走向主动内嵌。',
+    source: 'The Verge / Deadline',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence/974018/pippa-seedance-artist-royalties',
+  },
+  {
+    date: '2026-08-13',
     title: 'Suno与BMG达成"全球战略联盟"：以利益分成换取版权纠纷和解，AI音乐平台的作者补偿模式浮出水面',
     summary: 'AI音乐平台Suno宣布与全球音乐公司BMG达成"全球战略联盟"。根据协议，双方将共同开发重塑艺术家与粉丝连接方式的全新音乐体验，BMG旗下艺术家和词曲作者若选择参与，其权利将受到保护并获得音乐使用补偿，同时还就此前对BMG录音及出版作品的使用达成和解。此前Suno曾接入Musixmatch Sentinel版权检测系统。从依赖版权诉讼到转向利益分成与授权合作，AI音乐平台正在探索可持续的创作者补偿路径，但独立音乐人的议价能力是否会被平台统一化补偿方案所削弱，仍待观察。',
     source: 'The Verge / BMG / Suno',
