@@ -13,5 +13,5 @@ if [ -f .env ]; then
   set +a
 fi
 
-# 默认生产模式启动
-exec node server/index.js
+# 默认生产模式启动（当前已在 server 目录）
+exec node index.js
