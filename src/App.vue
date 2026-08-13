@@ -78,6 +78,7 @@
         </svg>
         <span>方舟与罗盘 · AI共创团队</span>
         <span class="footer-version">v0.1.0</span>
+        <a href="https://beian.miit.gov.cn" target="_blank" rel="noopener" class="footer-beian">滇ICP备2026015477号</a>
         <svg class="footer-gear" viewBox="0 0 24 24" width="14" height="14">
           <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/>
           <line x1="12" y1="2" x2="12" y2="6" stroke="currentColor" stroke-width="1.5"/>
@@ -370,6 +371,16 @@ import UserBadge from './components/UserBadge.vue'
   opacity: 0.4;
   animation: spin 8s linear infinite;
   transition: animation-duration 0.3s ease;
+}
+
+.footer-beian {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-beian:hover {
+  color: var(--text-primary, #e8e8f0);
 }
 
 .footer-inner:hover .footer-gear {
