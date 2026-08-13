@@ -26,6 +26,10 @@ const JWT_SECRET =
 const JWT_EXPIRES_IN = '7d'
 const BCRYPT_ROUNDS = 10
 
+// DeepSeek API Key（存放在后端环境变量，绝不暴露到前端）
+const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY || ''
+const DEEPSEEK_API_URL = 'https://api.deepseek.com/chat/completions'
+
 // ─── 数据库初始化 ─────────────────────────────────────────────
 
 const db = new Database(join(__dirname, 'data', 'users.db'))
@@ -106,7 +110,57 @@ function authMiddleware(req, res, next) {
 // ─── 健康检查 ─────────────────────────────────────────────────
 
 app.get('/api/health', (_req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() })
+  res.json({ status: 'ok', timestamp: new Date().toISOString(), hasAiKey: !!DEEPSEEK_API_KEY })
+})
+
+// ─── AI 评估代理 ─────────────────────────────────────────────
+// 前端调用此接口进行真实 LLM 评估，DeepSeek Key 只存在后端，不暴露给浏览器。
+// 请求体：{ messages: [{role, content}, ...], temperature?: number }
+
+app.post('/api/ethos/evaluate', async (req, res) => {
+  if (!DEEPSEEK_API_KEY) {
+    return res.status(503).json({ error: 'AI 评估服务未配置（缺少 DeepSeek API Key）' })
+  }
+
+  const { messages, temperature = 0.3 } = req.body || {}
+  if (!Array.isArray(messages) || messages.length === 0) {
+    return res.status(400).json({ error: 'messages 参数无效' })
+  }
+
+  const controller = new AbortController()
+  const timeoutId = setTimeout(() => controller.abort(), 30000)
+
+  try {
+    const upstream = await fetch(DEEPSEEK_API_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${DEEPSEEK_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: 'deepseek-chat',
+        messages,
+        temperature,
+        max_tokens: 2048,
+      }),
+      signal: controller.signal,
+    })
+
+    if (!upstream.ok) {
+      const errBody = await upstream.text().catch(() => '')
+      console.error('DeepSeek 上游错误:', upstream.status, errBody)
+      return res.status(502).json({ error: `AI 服务调用失败 (${upstream.status})` })
+    }
+
+    const data = await upstream.json()
+    const content = data.choices?.[0]?.message?.content || ''
+    res.json({ content })
+  } catch (err) {
+    console.error('AI 代理调用失败:', err.message)
+    res.status(502).json({ error: 'AI 服务调用失败: ' + (err.message || '未知错误') })
+  } finally {
+    clearTimeout(timeoutId)
+  }
 })
 
 // ─── 注册 ─────────────────────────────────────────────────────

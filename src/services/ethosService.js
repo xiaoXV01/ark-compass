@@ -91,14 +91,47 @@ export function clearApiKey() {
 
 // ─── API 调用 ──────────────────────────────────────────────
 
+// 后端代理地址（Key 不暴露到前端）
+const PROXY_API_URL = '/api/ethos/evaluate'
+
 /**
- * 调用 DeepSeek Chat API
- * @param {string} apiKey
+ * 调用 DeepSeek Chat API（通过后端代理，Key 不外泄）
+ * @param {string} apiKey - 兼容旧签名；若提供则走直连，否则走后端代理
  * @param {Array} messages - 消息数组
  * @param {number} [temperature=0.3]
  * @returns {Promise<string>} 模型回复文本
  */
 async function callDeepSeek(apiKey, messages, temperature = 0.3) {
+  // 优先走后端代理（推荐，安全）
+  try {
+    const res = await fetch(PROXY_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages, temperature }),
+    })
+
+    if (res.ok) {
+      const data = await res.json()
+      if (data && data.content) return data.content
+      throw new Error('后端未返回内容')
+    }
+
+    // 后端未配置 Key 时返回 503，抛错走降级
+    const err = await res.json().catch(() => ({}))
+    throw new Error(err.error || `后端代理失败 (${res.status})`)
+  } catch (err) {
+    // 后端代理不可用时，若用户提供了本地 Key 则直连 DeepSeek
+    if (apiKey && apiKey.trim()) {
+      return callDeepSeekDirect(apiKey, messages, temperature)
+    }
+    throw err
+  }
+}
+
+/**
+ * 直接调用 DeepSeek API（仅在用户本地提供 Key 时使用，作为后端代理的降级）
+ */
+async function callDeepSeekDirect(apiKey, messages, temperature = 0.3) {
   const controller = new AbortController()
   const timeoutId = setTimeout(() => controller.abort(), API_TIMEOUT)
 
@@ -183,34 +216,32 @@ function buildBenchmarkSystemPrompt() {
  * }>}
  */
 export async function analyzeEthos(text, apiKey) {
-  // 先尝试 LLM 评估
-  if (apiKey && apiKey.trim()) {
-    try {
-      const systemPrompt = buildSystemPrompt()
-      const userPrompt = `请评估以下 AI 回答文本的伦理表现：\n\n"""${text}"""`
+  // 总是先尝试 LLM 评估（走后端代理；后端未配 Key 时会降级）
+  try {
+    const systemPrompt = buildSystemPrompt()
+    const userPrompt = `请评估以下 AI 回答文本的伦理表现：\n\n"""${text}"""`
 
-      const reply = await callDeepSeek(apiKey, [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: userPrompt },
-      ])
+    const reply = await callDeepSeek(apiKey, [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: userPrompt },
+    ])
 
-      // 尝试解析 JSON 返回
-      const parsed = tryParseJson(reply)
-      if (parsed && parsed.scores && parsed.comments) {
-        return formatApiResult(parsed)
-      }
-
-      // 如果 LLM 返回了但格式不对，尝试从中提取 JSON
-      const extracted = extractJsonFromText(reply)
-      if (extracted && extracted.scores) {
-        return formatApiResult(extracted)
-      }
-
-      // LLM 返回了但无法解析，降级
-      console.warn('LLM 返回格式异常，降级为本地评分:', reply)
-    } catch (err) {
-      console.warn('LLM API 调用失败，降级为本地评分:', err.message)
+    // 尝试解析 JSON 返回
+    const parsed = tryParseJson(reply)
+    if (parsed && parsed.scores && parsed.comments) {
+      return formatApiResult(parsed)
     }
+
+    // 如果 LLM 返回了但格式不对，尝试从中提取 JSON
+    const extracted = extractJsonFromText(reply)
+    if (extracted && extracted.scores) {
+      return formatApiResult(extracted)
+    }
+
+    // LLM 返回了但无法解析，降级
+    console.warn('LLM 返回格式异常，降级为本地评分:', reply)
+  } catch (err) {
+    console.warn('LLM 评估不可用，降级为本地评分:', err.message)
   }
 
   // 降级：本地启发式评分
@@ -284,19 +315,17 @@ export async function runBenchmark(modelName, testSize, apiKey, onProgress) {
     let score = 0
     let usedFallback = false
 
-    // 尝试调用 LLM API
-    if (apiKey && apiKey.trim()) {
-      try {
-        const systemPrompt = buildBenchmarkSystemPrompt()
-        const reply = await callDeepSeek(apiKey, [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: q.question },
-        ])
-        answer = reply.trim()
-      } catch (err) {
-        console.warn(`第 ${q.id} 题 API 调用失败:`, err.message)
-        answer = ''
-      }
+    // 尝试调用 LLM API（走后端代理，失败则降级）
+    try {
+      const systemPrompt = buildBenchmarkSystemPrompt()
+      const reply = await callDeepSeek(apiKey, [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: q.question },
+      ])
+      answer = reply.trim()
+    } catch (err) {
+      console.warn(`第 ${q.id} 题 AI 评估不可用:`, err.message)
+      answer = ''
     }
 
     // 如果 API 调用失败或无 Key，使用模拟回答
