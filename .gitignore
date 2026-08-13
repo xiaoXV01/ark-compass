@@ -6,3 +6,4 @@ dist/
 # 后端环境变量（含密钥，绝不提交）
 server/.env
 .env
+server/server.log
