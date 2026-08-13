@@ -27,6 +27,31 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-13 新 ──
+  {
+    date: '2026-08-13',
+    title: 'Suno与BMG达成"全球战略联盟"：以利益分成换取版权纠纷和解，AI音乐平台的作者补偿模式浮出水面',
+    summary: 'AI音乐平台Suno宣布与全球音乐公司BMG达成"全球战略联盟"。根据协议，双方将共同开发重塑艺术家与粉丝连接方式的全新音乐体验，BMG旗下艺术家和词曲作者若选择参与，其权利将受到保护并获得音乐使用补偿，同时还就此前对BMG录音及出版作品的使用达成和解。此前Suno曾接入Musixmatch Sentinel版权检测系统。从依赖版权诉讼到转向利益分成与授权合作，AI音乐平台正在探索可持续的创作者补偿路径，但独立音乐人的议价能力是否会被平台统一化补偿方案所削弱，仍待观察。',
+    source: 'The Verge / BMG / Suno',
+    tag: 'industry',
+    url: 'https://www.bmg.com/news/bmg-and-suno-announce-global-strategic-alliance-advancing-ai-music-opportunities-and-revenue-streams',
+  },
+  {
+    date: '2026-08-13',
+    title: '说唱歌手Tyga因AI"合成垃圾"专辑创20年来首个Pitchfork零分：AI批量生产正在稀释音乐内涵',
+    summary: '说唱歌手Tyga承认在其怀旧风格的专辑$TARFACE中使用了AI工具创作，该专辑被乐评机构Pitchfork打出0.0分——这是20年来首次出现零分（上一次是2006年Jet的《Shine On》）。Pitchfork毫不留情地评价其为"自鸣得意且敷衍了事……由某个似乎从未真正听过一张合成器流行或迪斯科唱片的人拼凑而成"。这起事件成为AI内容质量与文化价值的标志性案例：当AI让音乐"批量生产"变得前所未有的容易，"AI slop"（AI垃圾内容）的泛滥是否正在系统性地稀释人类创作的内涵与独特性？这不仅是审美问题，更是AI伦理中创作者权益与文化多样性保护的新战场。',
+    source: 'The Verge / Pitchfork / Vibe',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-13',
+    title: '苹果寻求付费使用出版商内容提升Siri新闻能力：AI训练数据的"按使用付费"模式能否成为行业新标准？',
+    summary: '据《华尔街日报》报道，苹果正在与出版商洽谈合作，让Siri能够借助出版商的内容提供更优质的新闻与信息服务，并提议"当内容被实际使用时"向出版商付费。在AI公司因训练数据版权诉讼缠身、各出版商起诉OpenAI和Anthropic索要训练证据的背景下，苹果这一"按实际使用付费"的授权模式，代表了AI公司与内容创作者之间的一种新和解路径。但问题依然存在：这种谈判式授权是否只惠及大型出版商，而使小型和独立创作者在AI内容经济中继续被边缘化？',
+    source: 'WSJ / The Verge',
+    tag: 'industry',
+    url: 'https://www.wsj.com/business/media/apple-in-talks-to-pay-publishers-to-improve-ai-powered-siri',
+  },
   // ── 2026-08-12 新 ──
   {
     date: '2026-08-12',
