@@ -27,6 +27,31 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-14 新 ──
+  {
+    date: '2026-08-14',
+    title: 'Twitch CPO坦言「如果是opt-in就没人会选」：AI训练数据默认知情同意的「黑暗模式」之争',
+    summary: 'Twitch首席产品官Mike Minton在回应为何默认将用户内容用于训练亚马逊生成式AI模型时直言「如果是opt-in（主动加入），没有人会选择加入」，并辩护称「世界上几乎每个内容服务商都在这么做」。这句罕见的坦诚发言，恰好暴露了AI训练数据知情同意机制的核心矛盾：当平台把「默认纳入训练、用户自行退出（opt-out）」作为默认设置时，表面上给了用户开关，实则以行为经济学的不对称设计系统性侵蚀了弱势创作者的知情同意权。真正的知情同意应当是「默认不训练、明确主动加入」，而非让用户在暗处自行挣扎寻找退出开关。',
+    source: 'The Verge / Twitch',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-14',
+    title: 'OpenAI高层离职潮延续：首席营收官Denise Dresser与首席运营官Brad Lightcap相继离任，治理稳定性存疑',
+    summary: '继伦理负责人Chloé Bakalar任职不足一年便离职后，OpenAI首席营收官Denise Dresser宣布离开，两天前首席运营官Brad Lightcap也已宣布离任。短短数日内多位C-suite高管接连出走，叠加此前自研芯片项目、与Apple的人才诉讼争议，使外界对这家AI龙头的内部治理稳定性产生质疑。当一家市值数千亿的AI领导者在高速扩张中频繁失去核心高管，尤其是独立的伦理与运营决策声音时，其承诺的「安全与伦理优先」可信度正被持续削弱。AI公司治理不能仅靠创始人的个人信誉，更需要制度化的继任与问责机制。',
+    source: 'The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-14',
+    title: 'Google Gemini 3.7 Flash驱动Spark AI代理升级：效率提升背后的「AI将知识工作加速分层」隐忧',
+    summary: 'Google宣布Gemini Spark AI代理将改用升级版Gemini 3.7 Flash模型，称其「对知识工作更高效，改进了对Google Workspace工具的使用，为复杂的多技能工作流带来更高的准确率和输出质量」。在追求效率与准确率的叙事之外，这类「AI知识工作加速器」也暗含数字公平的隐忧：当AI代理能够自动化完成复杂多技能工作流时，掌握AI工具与否正在将劳动者划分为新的能力阶层，而无法负担或不愿使用此类工具的知识工作者，其相对竞争力正在被系统性拉低。AI提升生产力的同时，也在重新分配谁有机会受益于这场变革。',
+    source: 'The Verge / Google',
+    tag: 'industry',
+    url: 'https://blog.google/innovation-and-ai/models-and-research/introducing-gemini-3-7-flash/',
+  },
   // ── 2026-08-13 新 ──
   {
     date: '2026-08-13',
