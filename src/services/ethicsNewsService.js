@@ -27,6 +27,39 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-15 新 ──
+  {
+    date: '2026-08-15',
+    title: 'Google将持续在AI生成图片、视频与音乐中嵌入不可见的SynthID与C2PA水印：AI标注从可选走向默认',
+    summary: 'Google确认将继续在所有AI生成的图片、视频和音乐中嵌入不可见的SynthID与C2PA水印。这两套技术标识此前主要用于检测AI生成内容，如今走向"默认嵌入"，标志着AI生成内容溯源从"用户可选项"转向"平台默认义务"。这对deepfake治理与传播透明度是积极一步，但也带来数字公平的新追问：不可见水印对普通用户无感知，而检测工具却并非人人可及——识别AI内容的能力是否会成为新的技术门槛，让缺乏专业工具的公众在信息鉴别中继续处于劣势？内容标注的透明度，不能只停留在"技术上已内嵌"，还需让公众真正具备"可验证"的能力。',
+    source: 'The Verge / Google',
+    tag: 'policy',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-15',
+    title: 'OpenAI企业营收据称首次超过消费者营收：AI商业化重心向机构倾斜的公平隐忧',
+    summary: '据CNBC报道，OpenAI首席财务官Sarah Friar在投资者会议上表示，OpenAI"年初还是60-40（消费者居前），但企业端增速远超预期，两条曲线已经交叉，现在我们大部分营收来自企业"。这一转折点意味着AI巨头的商业重心正从大众消费市场向机构客户倾斜。当AI公司的收入愈发依赖企业采购时，其对普通消费者需求、以及小企业与个人创作者可负担性的关注，是否会被机构客户的付费意愿所稀释？AI的"普惠"叙事与"企业优先"的营收结构之间，正在形成一道值得警惕的裂缝。',
+    source: 'CNBC / The Verge',
+    tag: 'industry',
+    url: 'https://www.cnbc.com/2026/08/14/openai-cfo-friar-tells-investors-that-enterprise-bigger-than-consumer.html',
+  },
+  {
+    date: '2026-08-15',
+    title: 'SpaceX完成600亿美元收购Cursor：AI编程工具进入马斯克生态，开源与封闭的公平博弈',
+    summary: 'Elon Musk的SpaceX正式完成对AI编程工具Cursor的600亿美元收购，Cursor表示将参与SpaceX旗下Grok AI聊天机器人的开发（后者本周刚推出了新的AI代理功能）。AI编程工具被超级资本平台收编，再次引发开发者生态公平性的讨论：当主流AI编码工具集中于少数巨头手中，开源协作与中小开发者的可及性是否会受到挤压？编程工具的定价、数据与治理权集中在封闭生态里，是否会让"AI普惠开发者"的承诺打折？',
+    source: 'The Verge / SpaceX',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence/950571/spacex-is-officially-buying-cursor-for-60-billion',
+  },
+  {
+    date: '2026-08-15',
+    title: 'Google Meet上线线下会议AI笔记功能：录音生成纪要背后的隐私与数字公平',
+    summary: 'Google为付费Workspace账号推出线下会议AI笔记功能，通过麦克风录音让Gemini自动生成会议纪要、转录和"行动事项"并存入Google Drive。方便的叙事之外，这触及AI伦理中多重公平议题：与会者是否都被充分告知并同意被录音与转写？无法负担付费版Workspace的个人与小型团队，是否在AI会议效率工具上被进一步拉开差距？当AI默默记录每一场线下对话时，知情同意与非付费用户的数字鸿沟，正成为生产力工具普及中被忽略的角落。',
+    source: 'The Verge / Google',
+    tag: 'general',
+    url: 'https://workspaceupdates.googleblog.com/2026/08/take-notes-with-me-for-in-person-meetings-is-now-available.html',
+  },
   // ── 2026-08-14 新 ──
   {
     date: '2026-08-14',
