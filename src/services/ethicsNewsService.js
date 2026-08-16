@@ -27,6 +27,39 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-16 新 ──
+  {
+    date: '2026-08-16',
+    title: '女子指控继父用Grok将她的童年照片生成露骨图像：AI被用于制造儿童性剥削内容，未成年人保护的紧迫缺口',
+    summary: '据TechCrunch报道，一名女子指控其继父利用Grok将她童年时期的照片转化为露骨/色情图像，并直言AI工具正在"把日常生活变成儿童性虐待"。这一事件将AI生成式工具被滥用于制作未成年人（deepfake）露骨内容的伦理与法律风险推到台前：当用一张普通童年照片即可生成逼真色情图像时，未成年人（尤其是无法自主维权、难以防止照片被亲友滥用的儿童）的肖像权、人格尊严与安全保护面临前所未有的脆弱性。这不仅是技术公司的内容安全责任，更是在拷问：面向未成年的深度伪造内容，现有的拦截、举报与受害者救济机制是否足够快、足够有力。',
+    source: 'TechCrunch',
+    tag: 'incident',
+    url: 'https://techcrunch.com/2026/08/15/woman-claims-her-stepfather-used-grok-to-transform-childhood-photo-into-explicit-imagery/',
+  },
+  {
+    date: '2026-08-16',
+    title: 'Anthropic公布Claude新水印机制细节：内容溯源与检测工具可及性的数字公平追问',
+    summary: 'Anthropic披露了Claude生成内容新水印机制的更多细节——水印如何运作、能否被编辑隐藏、以及如何影响代码等。继Google之后，主流AI厂商加速把内容标识内建到生成流程中，这无疑有利于deepfake治理与信息透明度。但水印的技术细节也再次暴露出数字公平的隐忧：专业的检测/验证工具往往面向技术用户与平台，普通公众是否具备识别与验证AI内容的能力？当"溯源"成为少数人可用的技术能力，而非人人可及的公共基础设施时，内容透明度就会沦为形式。水印的公平价值，取决于它能否真正变成公众可验证、可负担的能力，而不只是平台内部合规的背书。',
+    source: 'TechCrunch / Anthropic',
+    tag: 'policy',
+    url: 'https://techcrunch.com/2026/08/15/anthropic-shares-more-details-about-how-claudes-new-watermarks-will-work/',
+  },
+  {
+    date: '2026-08-16',
+    title: 'Google允许用户移除AI生成内容的可见水印：透明度承诺与防滥用之间的微妙平衡',
+    summary: 'Google宣布将允许用户移除其AI生成内容上的可见水印（不影响用于识别AI来源的不可见标识）。这一做法在"尊重创作者美观需求"与"防止AI内容被伪装成真人作品传播"之间制造了张力：当显眼的可见标识可以被轻易关闭，而不可见标识又只有借助专门工具才能验证时，普通受众在信息流中分辨"AI生成"与"人类创作"的能力被进一步削弱。这对deepfake治理、选举信息诚信与普通公众的信息鉴别权利都是一记考验——标注的透明度价值，不能因为"好看"而被悄悄稀释，需要在可移除与可验证之间给出更清晰、更面向公众的平衡方案。',
+    source: 'TechCrunch / Google',
+    tag: 'policy',
+    url: 'https://techcrunch.com/2026/08/14/google-will-now-allow-users-to-remove-visible-watermark-from-its-ai-generations/',
+  },
+  {
+    date: '2026-08-16',
+    title: 'Meta发布开放权重模型Glimmer并宣称"AI属于每个人"：开放可下载与封闭API之间的可及性差异',
+    summary: 'Meta本周发布了开放权重的AI模型Glimmer，任何人都可下载并在自有硬件上运行，与其更强大但被锁定在自家API背后的模型Muse Spark形成鲜明对比。这一"开放vs封闭"的叙事再次聚焦AI可及性的公平议题：真正可负担、可自主掌控的AI，是否正在形成一道新的数字鸿沟——拥有一台能推理开源模型设备的个人与小团队，与只能依赖付费API或免费但受限服务的用户之间，能力差距正在拉大。"AI属于每个人"的承诺，不能只停留在开放权重的技术层面，还需正视算力成本、硬件门槛与算力获取能力等真正决定"谁用得起AI"的结构性因素。',
+    source: 'TechCrunch / Meta',
+    tag: 'industry',
+    url: 'https://techcrunch.com/video/does-mark-zuckerberg-really-believe-ai-is-for-everyone/',
+  },
   // ── 2026-08-15 新 ──
   {
     date: '2026-08-15',
