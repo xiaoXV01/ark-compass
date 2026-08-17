@@ -27,6 +27,39 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-17 新 ──
+  {
+    date: '2026-08-17',
+    title: 'OpenAI伦理负责人Chloé Bakalar离职：AI安全与伦理治理在IPO冲刺期的又一次洗牌',
+    summary: '据Financial Times报道，OpenAI的首席伦理官Chloé Bakalar在上月离职，距其加入公司尚不足一年，且目前尚无接替人选。Bakalar此前在Meta担任首席伦理学家超过三年。这一变动正值OpenAI向IPO推进之际，其安全团队的持续动荡引发关注：当一家AI公司把更多注意力投向商业化与上市，伦理与安全治理能否保持应有的分量？伦理负责人的频繁更迭与空缺，暴露出AI行业"伦理岗位"在组织中的真实权重——它究竟是驱动产品决策的核心角色，还是被边缘化的门面。对公众而言，这关乎AI系统背后是否始终有独立、有权威的声音在为安全与公平把关。',
+    source: 'Financial Times / The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-17',
+    title: 'Twitch默认用用户内容训练亚马逊AI且"若改为选择加入将无人参与"：内容授权与同意机制的数字公平考题',
+    summary: 'Twitch首席产品官Mike Minton承认，平台已默认将用户内容用于训练亚马逊的生成式AI，并直言"如果这是选择加入（opt-in），没人会愿意加入"。用户虽可选择退出，但默认开启的设定被其辩护为"全世界几乎所有内容服务都在这么做"。这一表态尖锐地揭示了内容创作者权益与AI训练数据获取之间的结构性不对等：当创作者的内容被默认纳入训练集，而个体既缺乏议价能力、又难以真正理解授权的后果时，"知情同意"就沦为形式上的勾选。默认加入、事后可退的模式，实质上把维护自身权益的成本转嫁给了最弱势的内容提供者，这是平台经济时代数字公平与版权治理的典型困境。',
+    source: 'The Verge / Twitch',
+    tag: 'policy',
+    url: 'https://www.theverge.com/tech/979112/twitch-streamers-can-now-opt-out-from-training-amazons-ai',
+  },
+  {
+    date: '2026-08-17',
+    title: 'Apple拟向出版商付费以改善Siri的新闻能力：按"实际使用"付费能否弥合平台与内容方的价值分配',
+    summary: '据华尔街日报报道，Apple正在与媒体出版商洽谈，计划付费获取内容以提升Siri在新闻与信息方面的能力，并提议当内容被实际使用时才向出版商付费。这一动向对比此前数家AI公司因无偿抓取新闻内容训练模型而面临的诉讼与争议，显示出平台与内容方关系正在从"免费抓取"向"按使用付费"转变的积极信号。但"按实际使用付费"的计量与透明度如何保证，中小媒体是否也能公平参与分成，以及这是否会进一步巩固头部平台对新闻分发的主导权，都是这一模式落地前需要回答的公平追问。',
+    source: 'The Wall Street Journal / The Verge',
+    tag: 'industry',
+    url: 'https://www.wsj.com/business/media/apple-in-talks-to-pay-publishers-to-improve-ai-powered-siri-0641f64b',
+  },
+  {
+    date: '2026-08-17',
+    title: 'AI数据中心在美国各地加速扩张并引发当地居民持续反对：算力扩张的环境与社群公平代价',
+    summary: 'The Verge汇总了近期美国多地AI数据中心项目的进展，指出这些项目虽持续落地，却频繁遭到关注其能耗、占地与电网负荷影响的当地居民反对。数据中心的爆发式增长背后，是训练与运行大模型所需的巨大算力与水电资源消耗，而这些成本往往由数据中心所在地的社区承担，收益却流向远方的科技巨头与少数股东。这构成了AI发展中的另一种公平议题：算力基础设施的环境足迹与社会成本，是否被不公平地转嫁给了缺乏话语权的普通居民？在追求AI能力跃升的同时，也需要正视其背后的资源分配正义。',
+    source: 'The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
   // ── 2026-08-16 新 ──
   {
     date: '2026-08-16',
