@@ -27,6 +27,31 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-18 新 ──
+  {
+    date: '2026-08-18',
+    title: '404 Media追踪稀有书籍去向：Amazon将大批纸质书裁切扫描喂给AI训练，实体知识被"数据化"的版权与公平隐忧',
+    summary: '404 Media在一批稀有书籍中放入追踪器，最终追踪到这批书抵达了拉斯维加斯的一处Amazon仓库。据该仓库员工透露，他们日常的工作就是接收大批纸质书，然后切掉书脊以便更快扫描——被扫描的实体书在此过程中被销毁。上个月404 Media已报道AI公司正在批量收购旧书作为"零AI垃圾"的训练数据。这一现象揭示了AI训练数据获取中新的公平难题：书店与出版商从"卖书给读者"变成"卖纸给算法"，而原作者是否知情、是否获得补偿、版权是否被尊重，都被裹挟在一场几乎不透明的"知识数字化"浪潮中。当承载人类知识的实体书籍被当作廉价原材料批量销毁，知识生产的公平回报机制也面临崩塌风险。',
+    source: '404 Media / The Verge',
+    tag: 'incident',
+    url: 'https://www.404media.co/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-training-facility/',
+  },
+  {
+    date: '2026-08-18',
+    title: 'Andreessen Horowitz成为美国司法部反垄断调查焦点：风投合伙人同时在竞争AI公司董事会任职的治理风险',
+    summary: '据Bloomberg报道，一项"近一年"的调查正在审视a16z投资合伙人是否不当地在相互竞争的AI公司董事会任职的可能性。联合创始人Ben Horowitz担任Databricks董事，而合伙人Martin Casado此前在dbt Labs董事会任职、其被Fivetran收购后又在Fivetran任职。这一调查触及AI产业权力集中的深层治理问题：当少数资本方同时掌控多家互为竞争对手的AI公司时，公平竞争、信息隔离与利益冲突的边界该如何界定？AI的"百花齐放"叙事背后，资本网络的交织可能正在悄悄削弱真正的市场公平与创新多样性。',
+    source: 'Bloomberg / The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence/949622/former-andreessen-horowitz-partner-john-ofarrell-says-his-former-colleagues-are-trying-to-buy-our-democracy',
+  },
+  {
+    date: '2026-08-18',
+    title: 'Nvidia承诺最高1050亿美元支持OpenAI数据中心，并投资15亿美元SB Energy：算力资本集中与能源公平的双重追问',
+    summary: 'Nvidia在一份SEC文件中承诺为支持OpenAI的数据中心提供最高1050亿美元，并投资15亿美元于负责建设俄亥俄州数据中心的SB Energy（软银子公司）。该交易将帮助OpenAI锁定8吉瓦的容量，首批800兆瓦预计2028年上线。这一巨额算力资本绑定延续了AI基础设施集中的趋势：巨头之间的算力、能源与资本深度耦合，而数据中心所在地社区承受的环境与能源代价、以及中小创新主体被边缘化的风险，都在这场"军备竞赛"中被放大。AI算力的获取能力正在成为新的不平等来源。',
+    source: 'SEC / The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
   // ── 2026-08-17 新 ──
   {
     date: '2026-08-17',
