@@ -27,6 +27,31 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-19 新 ──
+  {
+    date: '2026-08-19',
+    title: 'Google以1000万美元竞得Spirit Airlines破产拍卖数据用于AI训练："被去标识化"的消费者与员工数据背后的知情与公平隐忧',
+    summary: '据Axios与The Verge报道，Google在一次破产拍卖中以1000万美元竞得了已倒闭航空公司Spirit Airlines的大量商业数据，并计划用于AI训练。这批数据包含日历信息、文档、电子表格、电子邮件以及员工聊天记录。Google发言人在声明中强调"不会收到任何个人信息"，并称收到前会由第三方"严格清除所有可识别个人身份的信息"。这一事件触发了数据公平的核心争议：破产清算是否等于消费者和员工放弃了对自己数据的控制权？当事航空公司倒闭后，曾以为用于订票、客户服务、内部协作的数据，如今被转手成为科技巨头的训练语料。"去标识化"的承诺是否有独立审计、是否真的能防止重新识别，普通人无从知晓。当企业破产成为个人数据流向AI训练集的通道，数据主权与数字公平的边界再次被资本市场悄悄改写。',
+    source: 'Axios / The Verge',
+    tag: 'incident',
+    url: 'https://www.axios.com/2026/08/17/google-spirit-airlines-bankruptcy',
+  },
+  {
+    date: '2026-08-19',
+    title: 'OpenAI更新研究环境、监控与对齐技术以防范再次发生安全事件：AI安全治理的持续补课',
+    summary: '据The Verge报道，OpenAI正在更新其研究环境、监控以及对齐（alignment）技术，以避免再次发生此前被曝光的安全事故。这一动作延续了AI头部实验室在安全与对齐治理上的"打补丁"式迭代：每当出现一次安全 fiasco，随之而来的是一轮环境加固与流程升级。从更宏观的视角看，这暴露了AI安全治理的现实困境——安全能力往往滞后于能力部署，事故驱动而非前瞻驱动的改进模式，意味着在每一次"补课"之间，潜藏着新的风险窗口。对公众而言，AI系统的可靠性与安全性依赖于实验室能否把安全从"事后补救"升级为"事前设计"，而这一转变的速度，仍显著慢于模型能力的扩张速度。',
+    source: 'The Verge',
+    tag: 'research',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-19',
+    title: 'Anthropic扩展Claude对Gmail与Google Drive的访问、Claude Cowork进一步开放：AI助手深度接入个人数据的权限与透明边界',
+    summary: '据The Verge报道，Claude即将能够对用户的Gmail和Google Drive做更多操作，同时Claude Cowork（协同工作）的访问范围也在扩大。这一功能升级让AI助手更深地嵌入个人的邮件与云存储，以便更高效地完成摘要、整理与协同一类任务。但权限的扩展也带来数字公平与隐私的考验：当AI助手拥有读取私人通信与文件的权限时，用户是否清楚理解每一项授权会带来什么后果？默认开启还是显式授权、数据是否被用于进一步训练、撤销授权是否彻底，都直接关系到普通用户对自身数据的掌控能力。随着各大AI助手竞相接入个人数据源，"能力越强、权限越大"的趋势，要求平台在透明度与用户控制上提供同等强度的保障，而非让用户在高效率的诱惑面前被动让渡隐私。',
+    source: 'The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
   // ── 2026-08-18 新 ──
   {
     date: '2026-08-18',
