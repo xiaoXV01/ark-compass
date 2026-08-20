@@ -27,6 +27,31 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-20 新 ──
+  {
+    date: '2026-08-20',
+    title: 'AI安全仍高度依赖行业自我监管：The Verge评论直指治理缺口与公众信任危机',
+    summary: '据The Verge评论（Robert Hart），当前AI安全在很大程度上仍依赖行业“自律”而非强有力的外部监管。尽管各国都在推进AI立法与治理框架，但具体到前沿模型部署前的安全评估、事故后的问责机制、以及实验室内部风险控制的透明度，仍然缺乏统一、可强制执行的第三方标准。这一现状带来几个核心问题：当AI安全系于企业自愿承诺，谁在监督承诺是否兑现？当模型能力快速扩张而监管滞后，公众如何确信自己的权利不被牺牲在高效率与技术进步的叙事之下？评论指出，AI安全的真正挑战不在于缺乏善意，而在于缺乏把善意制度化的约束力——而这恰恰是监管与治理应当承担的角色。',
+    source: 'The Verge',
+    tag: 'policy',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-20',
+    title: 'Stripe以75亿美元收购AI网关OpenRouter：AI基础设施层加速整合的市场公平隐忧',
+    summary: '据The Verge与The New York Times报道，支付巨头Stripe宣布将以约75亿美元收购OpenRouter——一个连接开发者与多种AI模型、并聚合各类模型使用成本的AI网关平台。这笔交易将Stripe的支付基础设施与OpenRouter的模型路由能力结合，被业内视为AI基础设施“中间层”进入整合阶段的标志。从数字公平的视角看，这带来两层隐忧：其一，当模型调用、计费与支付的关键中间节点被少数平台掌控，中小开发者的选择空间与议价能力可能被进一步压缩；其二，模型成本聚合与计费的数据本身蕴含着几乎所有下游AI应用的用量信息，这种“元数据”的集中为潜在的垄断与数据权力不对称埋下伏笔。基础设施的每一次整合，都值得追问它带来的效率，是否为普通开发者和用户留出了公平的余地。',
+    source: 'The Verge / The New York Times',
+    tag: 'industry',
+    url: 'https://stripe.com/newsroom/news/stripe-agrees-to-acquire-openrouter',
+  },
+  {
+    date: '2026-08-20',
+    title: 'SpaceX据报曾考虑收购AI编程公司Cognition AI：AI研发人才与算力资源的并购竞赛',
+    summary: '据Bloomberg与The Verge报道，SpaceX曾就收购AI编程初创公司Cognition AI（以Devin等AI编码产品闻名）进行接触，虽然“谈判目前并不活跃”，但双方仍在讨论潜在合作，可能涉及Cognition使用SpaceX的计算能力。Cognition CEO Scott Wu随后在社交平台否认“出售”一说，称公司并未在出售、也未在洽谈。这一事件折射出AI产业加速整合的态势：当拥有算力资源和资本优势的巨头纷纷将目光投向AI研发与编码工具团队，人才与算力正在向少数主体聚合。对大模型生态的多样性而言，这种整合既可能带来更高效的协作，也可能削弱独立创新主体的生存空间。AI编码工具作为软件开发的“新基础设施”，其归属与控制权的演变，值得每一个开发者与用户持续关注。',
+    source: 'Bloomberg / The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
   // ── 2026-08-19 新 ──
   {
     date: '2026-08-19',
