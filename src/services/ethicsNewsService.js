@@ -27,6 +27,31 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-21 新 ──
+  {
+    date: '2026-08-21',
+    title: 'ChatGPT接入Apple Messages：AI助手直接读写私人短信的知情同意与隐私边界',
+    summary: '据The Verge报道，OpenAI为Mac版ChatGPT推出了Apple Messages插件，可“搜索消息、跟进对话、起草并发送回复”。这意味着AI助手首次获得对用户私人短信的直接读写能力。从数字公平视角看，这触发多重隐忧：其一，消息的自动搜索与回复会读取用户最私密的通信内容，是否经过充分、可撤销的授权？其二，被AI代写的回复在发送给对方时是否应明确标注为机器生成，以避免人际交往中的“真实性”被悄悄稀释？其三，不具备技术素养或不愿使用AI的用户，是否会在一场“谁更高效回复”的隐性竞争中处于劣势？AI越是深入私人通信，越需要在透明授权、来源标注与退出机制上给出与能力同等强度的保障。',
+    source: 'The Verge / OpenAI',
+    tag: 'industry',
+    url: 'https://x.com/ChatGPT/status/2090499359641329950',
+  },
+  {
+    date: '2026-08-21',
+    title: 'Adobe Firefly AI音频生成全面开放并转向“免费+每日次数”：AI创作工具可及性与创作者报酬的双重追问',
+    summary: '据The Verge报道，Adobe Firefly的AI音乐、语音与音效生成工具在Beta之后全面开放，并推出“每日免费生成次数”以吸引用户，而不再局限于付费订阅。AI音频生成走向免费化，一方面降低了创作门槛、让更多人能低成本地使用AI音效与配音，体现了工具普及的积极面；另一方面也延续了生成式AI对声音工作者、配音演员与音乐人生计的冲击焦虑——当AI能以近零边际成本批量产出可用音频，人类声音工作者的议价能力与报酬空间被进一步压缩。工具的“可及”不等于报酬的“公平”，如何在降门槛与保生计之间建立可持续的创作者补偿机制，仍是AI创作工具普惠化绕不开的伦理命题。',
+    source: 'The Verge / Adobe',
+    tag: 'industry',
+    url: 'https://www.theverge.com/news/807809/adobe-firefly-ai-audio-generate-soundtrack-speech',
+  },
+  {
+    date: '2026-08-21',
+    title: '中国人形机器人的“数据乌洛波洛斯”：政府训练中心回购机器人再卖出训练数据，泡沫隐忧与治理真空',
+    summary: '据The Verge援引金融时报报道，中国人形机器人制造商正将其相当一部分营收来自把机器人卖给政府支持的训练中心，这些中心再将训练数据卖回给行业，形成一种“数据循环”。在Unitree机器人IPO首日大涨、以及美国出台外国机器人禁令的背景下，这一“AI循环性”的商业模式引发了人形机器人泡沫的担忧。从治理与公平看，其核心隐忧在于：当训练数据在政府参与的交易网络中自我循环，数据质量、真实性与独立第三方验证是否缺失？当资本与政策双重助推下的“繁荣”缺乏透明治理框架时，普通投资者与公众的风险被转嫁，而少数参与者得以在泡沫破裂前套现离场。',
+    source: 'The Verge / Financial Times',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence/981668/nvidias-goldman-blackrock-gpu-compute-asset',
+  },
   // ── 2026-08-20 新 ──
   {
     date: '2026-08-20',
