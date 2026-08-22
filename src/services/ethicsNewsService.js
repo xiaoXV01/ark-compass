@@ -27,6 +27,31 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-22 新 ──
+  {
+    date: '2026-08-22',
+    title: 'Apple Music 年内上线 AI 歌曲标签：AI 生成内容的强制标注与执行真空之间的数字公平命题',
+    summary: '据 The Hollywood Reporter 与 The Verge 报道，Apple Music 在发给行业合作伙伴的邮件中确认，将于年内上线 AI 歌曲标签，把此前 3 月推出的“透明标签（Transparency Tags）”对用户可见。邮件明确“内容提供方必须在任何 AI 参与了内容实质部分创作的情况下附加 AI 透明标签，包括由 AI 平台生成的曲目”，并将“AI 平台生成内容”定义为“主要源自生成式 AI 服务的任何内容”。这一举措是 RIAA 与 IFPI 联合推动流媒体平台为 AI 内容加注标签的落地之一，紧随 Spotify 8 月宣布对 AI 艺术家打标（但不进入编辑推荐与算法推荐）之后。从数字公平看，其核心张力在于：一方面 AI 标签为用户提供了“这是不是真人创作”的关键信息、保护了创作者与听众的知情权；但另一方面，Apple 仍未说明标签的“执行机制”——在缺乏第三方校验与违规惩戒时，标签能否真正被普遍地、诚实地标注，而非沦为让诚实者增负、投机者漏网的装饰？自愿披露与强制标注之间的落差，正是 AI 内容治理中最难闭合的一环。',
+    source: 'The Hollywood Reporter / The Verge',
+    tag: 'policy',
+    url: 'https://www.hollywoodreporter.com/music/music-industry-news/apple-music-to-launch-labels-on-ai-tracks-1236677791/',
+  },
+  {
+    date: '2026-08-22',
+    title: 'LinkedIn“AI 垃圾标记按钮”被高频使用：AI 生成内容泛滥背景下的平台自净化与用户信任',
+    summary: '据 The Verge 报道，LinkedIn 近期推出的“AI slop（AI 垃圾内容）”标记按钮正被大量使用。这一现象折射出生成式 AI 内容在职业社交平台上的泛滥问题——当 AI 可以低门槛地产出海量看似专业、实则空洞的帖子、评论与“点赞收割”内容，平台的信号与噪音比被严重稀释，用户不得不花费更多精力分辨真实与合成的内容。从数字公平视角看，“标记按钮”本质上是把内容审核与去芜存菁的负担部分转嫁给了用户，而平台在模型生成内容的可追溯性、标注义务与治理投入上是否同步到位，仍有待观察。更深的隐忧在于：不具备辨别 AI 内容能力的普通用户（数字素养相对弱势者），在信息流中更容易被 AI 生成但披着权威外衣的内容误导，形成新的“数字素养鸿沟”。AI 内容治理不能只靠用户点亮一个按钮，还需要平台层面的系统性标注、限流与责任机制。',
+    source: 'The Verge / LinkedIn',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-22',
+    title: '《蜘蛛侠》美术集被指混入未标注的 AI 概念图：商业作品中的 AI 来源披露与创作者伦理',
+    summary: '据 The Verge 报道，电影《蜘蛛侠：崭新之日》的官方美术集《The Art of the Movie》中被指混入疑似由 AI 生成、且未做任何披露的概念图，相关图片由 The Artbook Collector 在社交平台公开比对指出。在一个预算充裕的顶级商业项目里，仍出现“疑似 AI 概念图”且无来源标注，暴露出两个层面的问题：其一，商业作品对 AI 生成内容的来源披露远未形成强制或行业共识，观众与收藏者无法确知自己购买的“艺术”是否包含机器生成部分；其二，对真正的人类概念艺术家而言，AI 概念图的混入意味着其工作价值与署名权面临被稀释甚至替代的压力。AI 生成内容的“真实性”与“来源透明”若在商业闭环中持续缺失，受损的不只是知情权，更是整个创作生态中人与人之间的信任。',
+    source: 'The Verge / The Artbook Collector',
+    tag: 'industry',
+    url: 'https://x.com/theartbookguy/status/2090473148026171526',
+  },
   // ── 2026-08-21 新 ──
   {
     date: '2026-08-21',
