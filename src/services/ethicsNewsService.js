@@ -27,6 +27,31 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-08-23 新 ──
+  {
+    date: '2026-08-23',
+    title: 'Nvidia 与华尔街把 AI 算力“证券化”成 5000 亿美元资产类别，叠加服务器涨价 15%：算力门槛与数字公平的双重挤压',
+    summary: '据 The Verge 援引 Bloomberg 与 CNBC 报道，Nvidia 正与 Apollo、BlackRock、Blackstone、Brookfield、高盛、KKR 等华尔街机构联合筹组 5000 亿美元融资，把 GPU 算力包装成“可投资的资产类别”。Nvidia CEO 黄仁勋称这是“芯片首次成为可投资资产”，并类比 1970 年代的抵押贷款支持证券市场；BlackRock CEO Larry Fink 亦称之为“金融工程的下一个未来”。与此同时，Bloomberg 报道 Nvidia 已告知部分大客户服务器价格将上涨逾 15%，这些客户正是为 Oracle、微软等搭建 AI 数据中心的厂商。从数字公平与社会经济维度看，这构成双重挤压：其一，算力被金融化为可炒作、可加杠杆的资产，最便宜、最底层的 AI 产品反而最先涨价（如 Amazon 本月已对 Echo、Fire TV、Kindle 上调最多 60%），普通消费者与中小开发者接入 AI 的能力被持续抬高；其二，当关键算力基础设施的定价权与融资主导权日益集中于少数巨头与金融机构，“谁能用得起 AI”正从技术问题演变为结构性的经济社会分层问题——AI 红利向资本与算力寡头倾斜，而算力弱势方的创新与受益空间被不断压缩。',
+    source: 'The Verge / Bloomberg / CNBC',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence/981668/nvidias-goldman-blackrock-gpu-compute-asset',
+  },
+  {
+    date: '2026-08-23',
+    title: 'GPU 抵押贷款巨头 Apollo 遭入侵：AI 算力基础设施金融化下的安全与治理真空',
+    summary: '据 The Verge 报道，在 GPU 抵押贷款（GPU-backed loans）领域扮演重要角色的 Apollo 公司遭遇黑客入侵。这一事件出现的背景，恰是“算力即资产”的金融化浪潮——当 GPU 芯片被当作抵押品、可租赁、可证券化的收益资产时，其安全性、所有权归属与风险披露都进入了一个几乎未有成熟监管覆盖的灰色地带。从数字公平与治理看，其隐忧在于：算力作为 AI 时代的“新生产资源”，一旦被金融化后遭到入侵或操纵，受损的不只是投资机构，更可能波及依赖其算力的下游企业与终端用户；而相关风险的透明披露、责任归属与消费者（乃至普通民众）的知情权，远未跟上金融创新的速度。算力基础设施的金融化，必须同步建立不低于传统金融体系的安全与问责标准。',
+    source: 'The Verge',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-08-23',
+    title: 'Higgsfield AI 视频推广被指“误导”：AI 生成营销内容的披露义务与粉丝信任',
+    summary: '据 The Verge 报道，围绕 Higgsfield 这一 AI 视频/图像工具，其推广视频让部分粉丝感到不满，核心质疑指向推广内容是否清楚披露了视频由 AI 生成、以及营销所展示的效果与用户实际可复现的效果之间是否存在落差。这与同期 Apple Music AI 标签、LinkedIn“AI 垃圾按钮”等话题同属一个更大的命题：AI 生成内容的“来源透明”不应只停留在平台自发的标签约定，而应延伸到营销与传播环节。当 AI 工具用未经充分披露的 AI 内容来做广告推广时，用户（尤其是数字素养相对弱势、难以分辨生成痕迹的人群）的知情判断与消费选择被悄然削弱，形成新的信息不对称。AI 内容的治理，需要把“披露义务”从创作端一直覆盖到营销端。',
+    source: 'The Verge',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
   // ── 2026-08-22 新 ──
   {
     date: '2026-08-22',
