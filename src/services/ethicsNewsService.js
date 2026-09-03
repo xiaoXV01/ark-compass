@@ -27,6 +27,31 @@ export const NEWS_TAGS = {
  */
 
 const _fallbackNews = [
+  // ── 2026-09-03 新 ──
+  {
+    date: '2026-09-03',
+    title: 'Jason Isbell 等音乐人对 Suno 提起“模仿声音与风格”诉讼：绕过版权、直指 AI 生成的声音身份与创作者控制权',
+    summary: '据 The Verge 报道，歌手 Jason Isbell 与 Guy Forsyth、Eduardo Calle 及 Camper Van Beethoven 的 David Lowery 联合起诉 AI 音乐公司 Suno，但诉讼理由并非传统版权侵权，而是指控 Suno 未经许可“模仿他们的声音与风格”。这一法律路径的转变揭示出生成式 AI 进入创意产业的深层公平张力：其一，当 AI 得以高保真地复现某位艺人的嗓音特质与演绎风格，即便没有逐字复制既有作品，也可能实质性地窃取创作者经年累月建立的“声音身份”与市场价值，而现有版权框架对此几乎无能为力；其二，相比于资金雄厚的明星艺人，绝大多数处在成长期的音乐人既无资源发起诉讼，也缺乏能力在流量分发中对抗近乎零成本的 AI 仿品，从而在同样的技术冲击下面临不成比例的职业风险。从 AI 伦理维度看，“AI 生成内容中声音与风格的模仿边界、创作者身份权保护与维权能力不均衡”，正在成为版权法之外亟需治理的新议题。',
+    source: 'The Verge / NYT',
+    tag: 'incident',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
+  {
+    date: '2026-09-03',
+    title: 'Perplexity 推出“Hybrid Compute”本地/云端分工：以隐私门拆分算力，弱势用户的数据安全能力差异被放大',
+    summary: '据 The Verge 报道，Perplexity 在其“Perplexity Computer”平台上推出“Hybrid Compute”功能，将任务在本地设备与云端 AI 之间拆分：云端模型负责推理、搜索与规划，端侧模型处理敏感信息与私有文件，并借由一道“隐私门（privacy gate）”控制哪些数据离开设备。其数字公平张力有二：其一，本地与云端的分工高度依赖用户是否具备判断“哪些信息敏感、该走哪条计算路径”的数字素养，而素养薄弱的用户很可能在不理解隐私门机制的情况下，将敏感数据默认交给云端处理，从而在实际效果上被“看似进步”的隐私设计排除在保护之外；其二，端侧模型的性能往往弱于云端模型，意味着选择隐私保护的代价是更差的功能体验，这种“隐私与能力此消彼长”的权衡，对不同收入与设备条件的用户并非均衡——高端设备用户可两者兼得，低端设备用户则被迫在隐私与功能的二选一中让渡其一。从 AI 伦理与数字公平维度看，“混合计算中隐私默认值、知情披露与能力不对等的用户影响”，正成为端云协同 AI 架构必须直面的治理命题。',
+    source: 'The Verge / Perplexity',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence/884778/perplexity-computer-combines-ai-chatbots-and-agents-into-one-system',
+  },
+  {
+    date: '2026-09-03',
+    title: '微软 Office 与 LinkedIn 主管公开警告工作场所“AI slop”泛滥：AI 生成内容挤占真实表达，信息可信度与劳动价值遭侵蚀',
+    summary: '据 The Verge 报道，微软负责 Office 业务并与 LinkedIn 同属一个体系的高管 Ryan Roslansky 近日在 LinkedIn 上公开“警告”工作场所中日渐泛滥的“AI slop（AI 生成的粗制内容）”，起因是他收到同事发来的一份完全由 AI 生成的文档；而 LinkedIn 此前上线的“AI slop 举报按钮”也已累计被超过百万人次使用。这一现象折射出生成式 AI 普及后的公平与真实性问题：其一，当 AI 能以极低成本批量产出语义通顺却言之无物的内容，真正投入思考与精力的个体创作者，其劳动价值在噪声中被稀释，形成“认真表达者被淹没、批量灌水者获曝光”的逆向激励；其二，AI 生成内容的权威外观可能误导读者，尤其是数字素养较弱的群体更难以辨别人工真迹与机器拼凑，从而在职业沟通、求职与信息获取中加速信任侵蚀。从 AI 伦理与数字公平维度看，“工作与社交场景中 AI 生成内容的泛滥、真实性与信任标识机制”，正在成为平台治理与数字素养教育的共同议题。',
+    source: 'The Verge / LinkedIn',
+    tag: 'industry',
+    url: 'https://www.theverge.com/ai-artificial-intelligence',
+  },
   // ── 2026-09-02 新 ──
   {
     date: '2026-09-02',
